@@ -22,5 +22,22 @@ namespace BindingProject.Views
         {
             InitializeComponent();
         }
+
+        private void SetHighPrice_Click(object sender, RoutedEventArgs e)
+        {
+            // Находим ViewModel через DataContext
+            if (DataContext is ViewModels.MainViewModel viewModel)
+            {
+                viewModel.CurrentProduct.Price = 99999;
+            }
+        }
+
+        private void ResetName_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is ViewModels.MainViewModel viewModel)
+            {
+                viewModel.CurrentProduct.Name = "Новый товар";
+            }
+        }
     }
 }

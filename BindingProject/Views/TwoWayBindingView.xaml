@@ -3,10 +3,98 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:BindingProject.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+    <StackPanel Margin="20" MaxWidth="500">
+        <TextBlock Text="🔄 Двухсторонняя привязка (TwoWay)"
+                   FontSize="20" FontWeight="Bold" Margin="0,0,0,20"
+                   Foreground="#2C3E50"/>
+
+        <!-- ========== ПРИМЕР 1: Два текстбокса к одному свойству ========== -->
+        <Border Background="#F0F8FF" Padding="10" Margin="0,5,0,10" CornerRadius="5">
+            <TextBlock Text="Пример 1: Два текстбокса связаны с одним свойством"
+                       FontWeight="Bold" Foreground="#2C3E50"/>
+        </Border>
+
+        <TextBlock Text="Название товара (редактируй любое поле):" Margin="0,5"/>
+        <TextBox x:Name="FirstTextBox" 
+                 Text="{Binding CurrentProduct.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                 Margin="0,0,0,5" Padding="8"/>
+
+        <TextBox Text="{Binding CurrentProduct.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                 Margin="0,0,0,15" Padding="8"/>
+
+        <TextBlock Text="⬆️ Изменяй текст в любом поле — второй обновляется сразу" 
+                   FontStyle="Italic" Foreground="Gray" Margin="0,0,0,20"/>
+
+        <!-- ========== ПРИМЕР 2: Слайдер + текстбокс ========== -->
+        <Border Background="#F0F8FF" Padding="10" Margin="0,5,0,10" CornerRadius="5">
+            <TextBlock Text="Пример 2: Слайдер и текстбокс для цены"
+                       FontWeight="Bold" Foreground="#2C3E50"/>
+        </Border>
+
+        <TextBlock Text="Цена (двигай слайдер или вводи число):" Margin="0,5"/>
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+            <TextBox Text="{Binding CurrentProduct.Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                     Width="100" Padding="8" Margin="0,0,10,0"/>
+            <Slider Value="{Binding CurrentProduct.Price, Mode=TwoWay}" 
+                    Minimum="0" Maximum="100000" Width="300"
+                    IsSnapToTickEnabled="True"
+                    TickFrequency="1" TickPlacement="BottomRight"/>
+        </StackPanel>
+
+        <TextBlock Margin="0,5,0,20">
+            <TextBlock.Text>
+                <MultiBinding StringFormat="{}{0} рублей">
+                    <Binding Path="CurrentProduct.Price"/>
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
+
+        <!-- ========== ПРИМЕР 3: CheckBox и видимость ========== -->
+        <Border Background="#F0F8FF" Padding="10" Margin="0,5,0,10" CornerRadius="5">
+            <TextBlock Text="Пример 3: CheckBox управляет видимостью"
+                       FontWeight="Bold" Foreground="#2C3E50"/>
+        </Border>
+
+        <CheckBox Content="Показать дополнительную информацию" 
+                  IsChecked="{Binding ShowExtraInfo, Mode=TwoWay}"
+                  Margin="0,5,0,10"/>
+
+        <Border Background="#FFF9E6" Padding="10" Margin="0,0,0,15" 
+                Visibility="{Binding ShowExtraInfo, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <TextBlock Text="Это дополнительная информация, которая появляется/скрывается по чекбоксу" 
+                       TextWrapping="Wrap"/>
+        </Border>
+
+        <!-- ========== ПРИМЕР 4: Кнопка обновления данных ========== -->
+        <Border Background="#F0F8FF" Padding="10" Margin="0,5,0,10" CornerRadius="5">
+            <TextBlock Text="Пример 4: Изменение данных в коде"
+                       FontWeight="Bold" Foreground="#2C3E50"/>
+        </Border>
+
+        <Button Content="Установить цену 99999" 
+                Click="SetHighPrice_Click"
+                Padding="10" Margin="0,0,0,10"/>
+
+        <Button Content="Сбросить название на 'Новый товар'" 
+                Click="ResetName_Click"
+                Padding="10" Margin="0,0,0,15"/>
+
+        <!-- ========== ПОЯСНЕНИЕ ========== -->
+        <Border Background="#E8F5E9" Padding="15" Margin="0,20,0,0" CornerRadius="5">
+            <StackPanel>
+                <TextBlock Text="📌 Что демонстрирует TwoWay привязка:" 
+                           FontWeight="Bold" FontSize="14" Margin="0,0,0,5"/>
+                <TextBlock Text="• Изменения в интерфейсе → обновляют модель" 
+                           Margin="10,2,0,2"/>
+                <TextBlock Text="• Изменения в модели (кнопки) → обновляют интерфейс" 
+                           Margin="10,2,0,2"/>
+                <TextBlock Text="• Все элементы синхронизированы между собой" 
+                           Margin="10,2,0,2"/>
+                </StackPanel>
+        </Border>
+    </StackPanel>
+    </ScrollViewer>
 </UserControl>
