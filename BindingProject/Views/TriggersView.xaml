@@ -4,9 +4,450 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BindingProject.Views"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+             d:DesignHeight="700" d:DesignWidth="900">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="20" MaxWidth="800">
+            <TextBlock Text="⚡ Триггеры в WPF"
+                       FontSize="24" FontWeight="Bold" Margin="0,0,0,10"
+                       Foreground="#2C3E50"/>
+
+            <TextBlock Text="Триггеры позволяют изменять внешний вид элементов при выполнении определенных условий"
+                       FontSize="14" TextWrapping="Wrap" Margin="0,0,0,20"
+                       Foreground="#555"/>
+
+            <!-- ============== 1. PROPERTY TRIGGER ============== -->
+            <Border Background="#F0F8FF" Padding="10" Margin="0,5,0,10" CornerRadius="5">
+                <TextBlock Text="🔹 1. PropertyTrigger (свойство элемента)" 
+                           FontSize="18" FontWeight="Bold" Foreground="#2C3E50"/>
+            </Border>
+
+            <TextBlock Text="Срабатывает при изменении свойства самого элемента (IsMouseOver, IsFocused, IsChecked)" 
+                       TextWrapping="Wrap" Margin="0,0,0,10" FontStyle="Italic"/>
+
+            <Grid Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Пример 1: Кнопка с триггером на наведение -->
+                <StackPanel Grid.Row="0" Grid.Column="0" Margin="10">
+                    <TextBlock Text="Кнопка с триггером на наведение" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <Button Content="Наведи мышку" Height="40" Width="150">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#3498DB"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="FontSize" Value="14"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#E67E22"/>
+                                        <Setter Property="FontSize" Value="16"/>
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                        <Setter Property="Width" Value="170"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <TextBlock Text="✓ IsMouseOver: меняет цвет, размер, шрифт" 
+                               FontSize="11" Foreground="Gray" Margin="0,5,0,0"/>
+                </StackPanel>
+
+                <!-- Пример 2: CheckBox с триггером на IsChecked -->
+                <StackPanel Grid.Row="0" Grid.Column="1" Margin="10">
+                    <TextBlock Text="CheckBox с триггером на IsChecked" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <CheckBox x:Name="SampleCheckBox" Content="Отметь меня" Margin="5"/>
+                    <Border Margin="5,10,5,0" Padding="10" CornerRadius="5">
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="Background" Value="#95A5A6"/>
+                                <Setter Property="BorderBrush" Value="#7F8C8D"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsChecked, ElementName=SampleCheckBox}" Value="True">
+                                        <Setter Property="Background" Value="#2ECC71"/>
+                                        <Setter Property="BorderBrush" Value="#27AE60"/>
+                                        <Setter Property="BorderThickness" Value="2"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                        <TextBlock Text="Цвет фона меняется при отметке" 
+                                   TextWrapping="Wrap" Foreground="White"/>
+                    </Border>
+                </StackPanel>
+
+                <!-- Пример 3: Текстбокс с триггером на фокус -->
+                <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
+                    <TextBlock Text="TextBox с триггером на IsFocused" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <TextBox Width="300" HorizontalAlignment="Left">
+                        <TextBox.Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Padding" Value="8"/>
+                                <Setter Property="FontSize" Value="14"/>
+                                <Setter Property="BorderBrush" Value="#BDC3C7"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsFocused" Value="True">
+                                        <Setter Property="BorderBrush" Value="#3498DB"/>
+                                        <Setter Property="BorderThickness" Value="3"/>
+                                        <Setter Property="Background" Value="#EBF5FB"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                    <TextBlock Text="✓ При фокусе: синяя рамка, голубой фон" 
+                               FontSize="11" Foreground="Gray" Margin="0,5,0,0"/>
+                </StackPanel>
+            </Grid>
+
+            <!-- ============== 2. DATA TRIGGER ============== -->
+            <Border Background="#F0F8FF" Padding="10" Margin="0,20,0,10" CornerRadius="5">
+                <TextBlock Text="🔹 2. DataTrigger (привязка к данным)" 
+                           FontSize="18" FontWeight="Bold" Foreground="#2C3E50"/>
+            </Border>
+
+            <TextBlock Text="Срабатывает при изменении данных в модели (привязка к свойству)" 
+                       TextWrapping="Wrap" Margin="0,0,0,15" FontStyle="Italic"/>
+
+            <!-- Таблица товаров с DataTriggers -->
+            <Grid Margin="0,0,0,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Заголовок -->
+                <Border Grid.Row="0" Background="#34495E" Padding="10" CornerRadius="5,5,0,0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="120"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="Товар" FontWeight="Bold" Foreground="White"/>
+                        <TextBlock Grid.Column="1" Text="Цена" FontWeight="Bold" Foreground="White" HorizontalAlignment="Right"/>
+                        <TextBlock Grid.Column="2" Text="Кол-во" FontWeight="Bold" Foreground="White" HorizontalAlignment="Right"/>
+                        <TextBlock Grid.Column="3" Text="Статус" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Border>
+
+                <!-- Стиль для строк таблицы с DataTriggers -->
+                <Border Grid.Row="1" Background="White" Padding="10" BorderBrush="#BDC3C7" BorderThickness="1,0,1,1">
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Setter Property="Background" Value="White"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding CurrentProduct.Price}" Value="0">
+                                    <Setter Property="Background" Value="#FADBD8"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding CurrentProduct.Quantity}" Value="0">
+                                    <Setter Property="Background" Value="#FCF3CF"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding CurrentProduct.Price}" Value="75000">
+                                    <Setter Property="Background" Value="#D4EFDF"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="120"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Text="{Binding CurrentProduct.Name}" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="1" Text="{Binding CurrentProduct.Price, StringFormat={}{0:N0} руб}" 
+                                   HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="2" Text="{Binding CurrentProduct.Quantity}" 
+                                   HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                        <!-- Статус с триггером внутри -->
+                        <Border Grid.Column="3" CornerRadius="15" Padding="5" HorizontalAlignment="Center">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="Background" Value="#BDC3C7"/>
+                                    <Setter Property="Padding" Value="8,3"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding CurrentProduct.Price}" Value="0">
+                                            <Setter Property="Background" Value="#E74C3C"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding CurrentProduct.Quantity}" Value="0">
+                                            <Setter Property="Background" Value="#F39C12"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding CurrentProduct.Price}" Value="75000">
+                                            <Setter Property="Background" Value="#27AE60"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding CurrentProduct.Quantity, Converter={StaticResource GreaterThanZeroConverter}}" Value="True">
+                                            <Setter Property="Background" Value="#27AE60"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                            <TextBlock Foreground="White">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Text" Value="Обычный"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding CurrentProduct.Price}" Value="0">
+                                                <Setter Property="Text" Value="Бесплатно"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding CurrentProduct.Quantity}" Value="0">
+                                                <Setter Property="Text" Value="Нет в наличии"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding CurrentProduct.Price}" Value="75000">
+                                                <Setter Property="Text" Value="Премиум"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Border>
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <!-- ============== 3. EVENT TRIGGER ============== -->
+            <Border Background="#F0F8FF" Padding="10" Margin="0,20,0,10" CornerRadius="5">
+                <TextBlock Text="🔹 3. EventTrigger (события и анимация)" 
+                           FontSize="18" FontWeight="Bold" Foreground="#2C3E50"/>
+            </Border>
+
+            <TextBlock Text="Срабатывает при возникновении события (Click, Loaded, MouseEnter) и запускает анимацию" 
+                       TextWrapping="Wrap" Margin="0,0,0,15" FontStyle="Italic"/>
+
+            <Grid Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Пример 1: Кнопка с анимацией при клике -->
+                <StackPanel Grid.Row="0" Grid.Column="0" Margin="10">
+                    <TextBlock Text="Кнопка с анимацией при клике" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <Button Name="AnimatedButton" Content="Нажми меня" Height="40" Width="150">
+                        <Button.Triggers>
+                            <EventTrigger RoutedEvent="Button.Click">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation 
+                                            Storyboard.TargetProperty="Opacity" 
+                                            From="1" To="0.3" Duration="0:0:0.1" 
+                                            AutoReverse="True"/>
+                                        <DoubleAnimation 
+                                            Storyboard.TargetProperty="RenderTransform.ScaleX" 
+                                            From="1" To="0.9" Duration="0:0:0.1" 
+                                            AutoReverse="True"/>
+                                        <DoubleAnimation 
+                                            Storyboard.TargetProperty="RenderTransform.ScaleY" 
+                                            From="1" To="0.9" Duration="0:0:0.1" 
+                                            AutoReverse="True"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Button.Triggers>
+                        <Button.RenderTransform>
+                            <ScaleTransform ScaleX="1" ScaleY="1"/>
+                        </Button.RenderTransform>
+                    </Button>
+                    <TextBlock Text="✓ При клике: мигает и сжимается" 
+                               FontSize="11" Foreground="Gray" Margin="0,5,0,0"/>
+                </StackPanel>
+
+                <!-- Пример 2: Квадрат с анимацией при наведении -->
+                <StackPanel Grid.Row="0" Grid.Column="1" Margin="10">
+                    <TextBlock Text="Анимация при наведении" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <Border Name="AnimatedSquare" Width="100" Height="100" Background="#3498DB" CornerRadius="5">
+                        <Border.Triggers>
+                            <EventTrigger RoutedEvent="Border.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation 
+                                            Storyboard.TargetProperty="Background.Color" 
+                                            To="#E67E22" Duration="0:0:0.5"/>
+                                        <DoubleAnimation 
+                                            Storyboard.TargetProperty="Width" 
+                                            To="120" Duration="0:0:0.5"/>
+                                        <DoubleAnimation 
+                                            Storyboard.TargetProperty="Height" 
+                                            To="120" Duration="0:0:0.5"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="Border.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation 
+                                            Storyboard.TargetProperty="Background.Color" 
+                                            To="#3498DB" Duration="0:0:0.5"/>
+                                        <DoubleAnimation 
+                                            Storyboard.TargetProperty="Width" 
+                                            To="100" Duration="0:0:0.5"/>
+                                        <DoubleAnimation 
+                                            Storyboard.TargetProperty="Height" 
+                                            To="100" Duration="0:0:0.5"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Border.Triggers>
+                    </Border>
+                </StackPanel>
+
+                <!-- Пример 3: Вращающийся текст -->
+                <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
+                    <TextBlock Text="Анимация при загрузке" FontWeight="SemiBold" Margin="0,10,0,5"/>
+                    <Border Background="#F0F0F0" Padding="20" CornerRadius="5">
+                        <Border.Triggers>
+                            <EventTrigger RoutedEvent="Border.Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard RepeatBehavior="Forever" AutoReverse="True">
+                                        <DoubleAnimation 
+                                            Storyboard.TargetProperty="Opacity" 
+                                            From="1" To="0.3" Duration="0:0:2"/>
+                                        <DoubleAnimation 
+                                            Storyboard.TargetProperty="RenderTransform.Angle" 
+                                            From="0" To="360" Duration="0:0:5"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Border.Triggers>
+                        <Border.RenderTransform>
+                            <RotateTransform CenterX="75" CenterY="15"/>
+                        </Border.RenderTransform>
+                        <TextBlock Text="⚡ Триггеры в действии ⚡" FontSize="20" FontWeight="Bold" 
+                                   HorizontalAlignment="Center"/>
+                    </Border>
+                </StackPanel>
+            </Grid>
+
+            <!-- ============== 4. MULTI TRIGGER ============== -->
+            <Border Background="#F0F8FF" Padding="10" Margin="0,20,0,10" CornerRadius="5">
+                <TextBlock Text="🔹 4. MultiTrigger и MultiDataTrigger (несколько условий)" 
+                           FontSize="18" FontWeight="Bold" Foreground="#2C3E50"/>
+            </Border>
+
+            <TextBlock Text="Срабатывают при выполнении нескольких условий одновременно" 
+                       TextWrapping="Wrap" Margin="0,0,0,15" FontStyle="Italic"/>
+
+            <Border Background="White" Padding="15" Margin="0,0,0,20" CornerRadius="5" BorderBrush="#BDC3C7" BorderThickness="1">
+                <StackPanel>
+                    <TextBlock Text="Условия для скидки:" FontWeight="Bold" Margin="0,0,0,10"/>
+
+                    <CheckBox x:Name="IsRegularCustomer" Content="Постоянный клиент" Margin="5"/>
+                    <CheckBox x:Name="HasPromoCode" Content="Есть промокод" Margin="5"/>
+                    <CheckBox x:Name="IsHoliday" Content="Праздничный день" Margin="5"/>
+
+                    <Border Margin="5,15,5,0" Padding="15" CornerRadius="5">
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="Background" Value="#BDC3C7"/>
+                                <Setter Property="BorderBrush" Value="#7F8C8D"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                                <Style.Triggers>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding IsChecked, ElementName=IsRegularCustomer}" Value="True"/>
+                                            <Condition Binding="{Binding IsChecked, ElementName=HasPromoCode}" Value="True"/>
+                                        </MultiDataTrigger.Conditions>
+                                        <Setter Property="Background" Value="#F39C12"/>
+                                        <Setter Property="BorderBrush" Value="#E67E22"/>
+                                        <Setter Property="BorderThickness" Value="2"/>
+                                    </MultiDataTrigger>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding IsChecked, ElementName=IsRegularCustomer}" Value="True"/>
+                                            <Condition Binding="{Binding IsChecked, ElementName=HasPromoCode}" Value="True"/>
+                                            <Condition Binding="{Binding IsChecked, ElementName=IsHoliday}" Value="True"/>
+                                        </MultiDataTrigger.Conditions>
+                                        <Setter Property="Background" Value="#27AE60"/>
+                                        <Setter Property="BorderBrush" Value="#2ECC71"/>
+                                        <Setter Property="BorderThickness" Value="3"/>
+                                    </MultiDataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+
+                        <StackPanel>
+                            <TextBlock Text="Ваша скидка:" FontWeight="Bold" Foreground="White"/>
+                            <TextBlock Foreground="White" FontSize="24" FontWeight="Bold">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Text" Value="0%"/>
+                                        <Style.Triggers>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding IsChecked, ElementName=IsRegularCustomer}" Value="True"/>
+                                                    <Condition Binding="{Binding IsChecked, ElementName=HasPromoCode}" Value="True"/>
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="Text" Value="10%"/>
+                                            </MultiDataTrigger>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding IsChecked, ElementName=IsRegularCustomer}" Value="True"/>
+                                                    <Condition Binding="{Binding IsChecked, ElementName=HasPromoCode}" Value="True"/>
+                                                    <Condition Binding="{Binding IsChecked, ElementName=IsHoliday}" Value="True"/>
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="Text" Value="25%"/>
+                                            </MultiDataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Border>
+
+            <!-- ============== ИТОГОВАЯ ТАБЛИЦА ============== -->
+            <Border Background="#E8F5E9" Padding="20" Margin="0,20,0,0" CornerRadius="5">
+                <StackPanel>
+                    <TextBlock Text="📊 Сводка по триггерам:" 
+                               FontWeight="Bold" FontSize="16" Margin="0,0,0,15"/>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="PropertyTrigger" FontWeight="Bold" Foreground="#2980B9"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="Реагирует на свойства элемента (IsMouseOver, IsFocused и др.)" Margin="10,0"/>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="DataTrigger" FontWeight="Bold" Foreground="#27AE60" Margin="0,5"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="Реагирует на изменения в данных (привязка к модели)" Margin="10,5"/>
+
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="EventTrigger" FontWeight="Bold" Foreground="#E67E22" Margin="0,5"/>
+                        <TextBlock Grid.Row="2" Grid.Column="1" Text="Запускает анимацию при событии (Click, Loaded и др.)" Margin="10,5"/>
+
+                        <TextBlock Grid.Row="3" Grid.Column="0" Text="MultiTrigger" FontWeight="Bold" Foreground="#8E44AD" Margin="0,5"/>
+                        <TextBlock Grid.Row="3" Grid.Column="1" Text="Срабатывает при выполнении нескольких условий" Margin="10,5"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
 </UserControl>

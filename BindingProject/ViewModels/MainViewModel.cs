@@ -17,11 +17,12 @@ namespace BindingProject.ViewModels
         {
             CurrentProduct = new Product
             {
-                Name = "Ножницы",
-                Price = 150,
-                Quantity = 10,
+                Name = "Товар",
+                Price = 1000,
+                Quantity = 1
             };
-            ShowExtraInfo = true; // По умолчанию показываем
+            LastUpdateTime = DateTime.Now;
+            ShowExtraInfo = true;
         }
 
         public Product CurrentProduct
@@ -46,6 +47,17 @@ namespace BindingProject.ViewModels
             set
             {
                 _showExtraInfo = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private DateTime _lastUpdateTime;
+        public DateTime LastUpdateTime
+        {
+            get => _lastUpdateTime;
+            set
+            {
+                _lastUpdateTime = value;
                 OnPropertyChanged();
             }
         }

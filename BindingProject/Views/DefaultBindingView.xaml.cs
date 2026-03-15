@@ -22,5 +22,15 @@ namespace BindingProject.Views
         {
             InitializeComponent();
         }
+
+        private void ResetToDefault_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is ViewModels.MainViewModel vm)
+            {
+                vm.CurrentProduct.Name = "Товар";
+                vm.CurrentProduct.Price = 1000;
+                vm.CurrentProduct.Quantity = 1;
+            }
+        }
     }
 }

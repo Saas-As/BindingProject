@@ -22,5 +22,55 @@ namespace BindingProject.Views
         {
             InitializeComponent();
         }
+        private void SetLaptop_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is ViewModels.MainViewModel vm)
+            {
+                vm.CurrentProduct.Name = "Ноутбук ASUS";
+                vm.CurrentProduct.Price = 65000;
+                vm.CurrentProduct.Quantity = 3;
+                vm.LastUpdateTime = DateTime.Now;
+            }
+        }
+
+        private void SetPhone_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is ViewModels.MainViewModel vm)
+            {
+                vm.CurrentProduct.Name = "Смартфон Samsung";
+                vm.CurrentProduct.Price = 45000;
+                vm.CurrentProduct.Quantity = 5;
+                vm.LastUpdateTime = DateTime.Now;
+            }
+        }
+
+        private void SetPrice25000_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is ViewModels.MainViewModel vm)
+            {
+                vm.CurrentProduct.Price = 25000;
+                vm.LastUpdateTime = DateTime.Now;
+            }
+        }
+
+        private void SetPrice75000_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is ViewModels.MainViewModel vm)
+            {
+                vm.CurrentProduct.Price = 75000;
+                vm.LastUpdateTime = DateTime.Now;
+            }
+        }
+
+        private void Reset_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is ViewModels.MainViewModel vm)
+            {
+                vm.CurrentProduct.Name = "Товар";
+                vm.CurrentProduct.Price = 1000;
+                vm.CurrentProduct.Quantity = 1;
+                vm.LastUpdateTime = DateTime.Now;
+            }
+        }
     }
 }

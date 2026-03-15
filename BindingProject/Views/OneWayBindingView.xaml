@@ -3,10 +3,254 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:BindingProject.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+             d:DesignHeight="650" d:DesignWidth="800">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+    <StackPanel Margin="20" MaxWidth="550">
+        <TextBlock Text="➡️ Односторонние привязки (OneWay)"
+                   FontSize="20" FontWeight="Bold" Margin="0,0,0,20"
+                   Foreground="#2C3E50"/>
+
+        <!-- ========== ОПИСАНИЕ ========== -->
+        <Border Background="#F0F8FF" Padding="15" Margin="0,0,0,20" CornerRadius="5">
+            <TextBlock TextWrapping="Wrap">
+                <Run Text="OneWay привязка: данные текут" FontWeight="Normal"/>
+                <Run Text="только из модели в интерфейс" FontWeight="Bold" Foreground="Blue"/>
+                <Run Text=". Пользователь может видеть данные, но не может их изменить через этот элемент."/>
+            </TextBlock>
+        </Border>
+
+        <!-- ========== ПРИМЕР 1: Текстблоки только для чтения ========== -->
+        <Border Background="#F0F0F0" Padding="10" Margin="0,5,0,10" CornerRadius="5">
+            <TextBlock Text="📌 ПРИМЕР 1: TextBlock с OneWay (только просмотр)" 
+                       FontWeight="Bold" Foreground="#2C3E50"/>
+        </Border>
+
+        <Grid Margin="0,0,0,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Заголовки -->
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="Редактирование (TwoWay)" 
+                       FontWeight="Bold" Foreground="#27AE60" Margin="5"/>
+            <TextBlock Grid.Row="0" Grid.Column="2" Text="Просмотр (OneWay)" 
+                       FontWeight="Bold" Foreground="#2980B9" Margin="5"/>
+
+            <!-- Название -->
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Название:" Margin="5,10" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="1" Grid.Column="1" 
+                     Text="{Binding CurrentProduct.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="5" Padding="8"/>
+            <TextBlock Grid.Row="1" Grid.Column="2" 
+                       Text="{Binding CurrentProduct.Name, Mode=OneWay}" 
+                       Margin="5" Padding="8" VerticalAlignment="Center"
+                       Background="#EBF5FB" FontSize="14"/>
+
+            <!-- Цена -->
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Цена:" Margin="5,10" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="2" Grid.Column="1" 
+                     Text="{Binding CurrentProduct.Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="5" Padding="8"/>
+            <TextBlock Grid.Row="2" Grid.Column="2" 
+                       Text="{Binding CurrentProduct.Price, Mode=OneWay, StringFormat={}{0:N0} руб}" 
+                       Margin="5" Padding="8" VerticalAlignment="Center"
+                       Background="#EBF5FB" FontSize="14"/>
+
+            <!-- Количество -->
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Количество:" Margin="5,10" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="3" Grid.Column="1" 
+                     Text="{Binding CurrentProduct.Quantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="5" Padding="8"/>
+            <TextBlock Grid.Row="3" Grid.Column="2" 
+                       Text="{Binding CurrentProduct.Quantity, Mode=OneWay}" 
+                       Margin="5" Padding="8" VerticalAlignment="Center"
+                       Background="#EBF5FB" FontSize="14"/>
+        </Grid>
+
+        <!-- ========== ПРИМЕР 2: Прогресс и статус ========== -->
+        <Border Background="#F0F0F0" Padding="10" Margin="0,10,0,10" CornerRadius="5">
+            <TextBlock Text="📊 ПРИМЕР 2: Визуальные элементы с OneWay" 
+                       FontWeight="Bold" Foreground="#2C3E50"/>
+        </Border>
+
+        <Grid Margin="0,0,0,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Прогресс-бар от цены -->
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Прогресс цены:" Margin="5,10" VerticalAlignment="Center"/>
+            <ProgressBar Grid.Row="0" Grid.Column="1" 
+                         Value="{Binding CurrentProduct.Price, Mode=OneWay}" 
+                         Minimum="0" Maximum="100000" Height="25" Margin="5"
+                         Foreground="#27AE60"/>
+
+            <!-- Дата последнего обновления -->
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Последнее изменение:" Margin="5,10" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" 
+                       Text="{Binding LastUpdateTime, Mode=OneWay, StringFormat='{}{0:HH:mm:ss}'}" 
+                       Margin="5" Padding="8" Background="#F0F0F0"/>
+
+            <!-- Итоговая сумма крупно -->
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="ИТОГО:" Margin="5,10" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" 
+                       Text="{Binding CurrentProduct.Total, Mode=OneWay, StringFormat={}{0:N0} руб}" 
+                       FontSize="24" FontWeight="Bold" Foreground="#2ECC71"
+                       Margin="5" Padding="8"/>
+        </Grid>
+
+        <!-- ========== ПРИМЕР 3: Слайдер управляет ценой ========== -->
+        <Border Background="#F0F0F0" Padding="10" Margin="0,10,0,10" CornerRadius="5">
+            <TextBlock Text="🎚️ ПРИМЕР 3: Слайдер (TwoWay) и индикаторы (OneWay)" 
+                       FontWeight="Bold" Foreground="#2C3E50"/>
+        </Border>
+
+        <StackPanel Margin="0,0,0,20">
+            <TextBlock Text="Управляй ценой через слайдер:" Margin="0,5"/>
+            <Slider Value="{Binding CurrentProduct.Price, Mode=TwoWay}" 
+                    Minimum="0" Maximum="100000" TickFrequency="1" 
+                    IsSnapToTickEnabled="True" Margin="5"/>
+
+            <WrapPanel Margin="0,10">
+                <TextBlock Text="Текущая цена: " FontSize="16" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding CurrentProduct.Price, Mode=OneWay, StringFormat={}{0:N0} руб}" 
+                           FontSize="20" FontWeight="Bold" Foreground="#E67E22"
+                           VerticalAlignment="Center" Margin="5,0"/>
+            </WrapPanel>
+
+            <WrapPanel>
+                <TextBlock Text="Название товара: " FontSize="14"/>
+                <TextBlock Text="{Binding CurrentProduct.Name, Mode=OneWay}" 
+                           FontSize="16" FontWeight="SemiBold" Foreground="#2980B9"/>
+            </WrapPanel>
+        </StackPanel>
+
+        <!-- ========== ПРИМЕР 4: Сравнение OneWay и OneTime ========== -->
+        <Border Background="#F0F0F0" Padding="10" Margin="0,10,0,10" CornerRadius="5">
+            <TextBlock Text="🔄 ПРИМЕР 4: OneWay vs OneTime (наглядное сравнение)" 
+                       FontWeight="Bold" Foreground="#2C3E50"/>
+        </Border>
+
+        <Grid Margin="0,0,0,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Заголовки -->
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Редактор (TwoWay)" 
+                       FontWeight="Bold" Foreground="#27AE60" Margin="5" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="OneWay (обновляется)" 
+                       FontWeight="Bold" Foreground="#2980B9" Margin="5" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Row="0" Grid.Column="2" Text="OneTime (застыл)" 
+                       FontWeight="Bold" Foreground="#E67E22" Margin="5" HorizontalAlignment="Center"/>
+
+            <!-- Данные -->
+            <TextBox Grid.Row="1" Grid.Column="0" 
+                     Text="{Binding CurrentProduct.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="5" Padding="8"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" 
+                       Text="{Binding CurrentProduct.Name, Mode=OneWay}" 
+                       Margin="5" Padding="8" Background="#D4E6F1"/>
+            <TextBlock Grid.Row="1" Grid.Column="2" 
+                       Text="{Binding CurrentProduct.Name, Mode=OneTime}" 
+                       Margin="5" Padding="8" Background="#FAD7A0"/>
+
+            <TextBox Grid.Row="2" Grid.Column="0" 
+                     Text="{Binding CurrentProduct.Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="5" Padding="8"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" 
+                       Text="{Binding CurrentProduct.Price, Mode=OneWay, StringFormat={}{0:N0} руб}" 
+                       Margin="5" Padding="8" Background="#D4E6F1"/>
+            <TextBlock Grid.Row="2" Grid.Column="2" 
+                       Text="{Binding CurrentProduct.Price, Mode=OneTime, StringFormat={}{0:N0} руб}" 
+                       Margin="5" Padding="8" Background="#FAD7A0"/>
+        </Grid>
+
+        <!-- ========== КНОПКИ ДЛЯ ТЕСТИРОВАНИЯ ========== -->
+        <Border Background="#F0F0F0" Padding="10" Margin="0,10,0,10" CornerRadius="5">
+            <TextBlock Text="🎮 Тестовые кнопки (меняют данные в модели)" 
+                       FontWeight="Bold" Foreground="#2C3E50"/>
+        </Border>
+
+        <WrapPanel Margin="0,0,0,20">
+            <Button Content="Ноутбук" 
+                    Click="SetLaptop_Click"
+                    Padding="15,8" Margin="0,0,10,5" Background="#3498DB" Foreground="White"/>
+            <Button Content="Телефон" 
+                    Click="SetPhone_Click"
+                    Padding="15,8" Margin="0,0,10,5" Background="#3498DB" Foreground="White"/>
+            <Button Content="Цена 25000" 
+                    Click="SetPrice25000_Click"
+                    Padding="15,8" Margin="0,0,10,5" Background="#3498DB" Foreground="White"/>
+            <Button Content="Цена 75000" 
+                    Click="SetPrice75000_Click"
+                    Padding="15,8" Margin="0,0,10,5" Background="#3498DB" Foreground="White"/>
+            <Button Content="Сброс" 
+                    Click="Reset_Click"
+                    Padding="15,8" Margin="0,0,10,5" Background="#E74C3C" Foreground="White"/>
+        </WrapPanel>
+
+        <!-- ========== ИТОГОВОЕ ПОЯСНЕНИЕ ========== -->
+        <Border Background="#E8F5E9" Padding="15" Margin="0,10,0,0" CornerRadius="5">
+            <StackPanel>
+                <TextBlock Text="📌 Что демонстрирует OneWay привязка:" 
+                           FontWeight="Bold" FontSize="14" Margin="0,0,0,10"/>
+
+                <BulletDecorator Margin="0,0,0,5">
+                    <BulletDecorator.Bullet>
+                        <TextBlock Text="✓" Foreground="#27AE60" FontWeight="Bold"/>
+                    </BulletDecorator.Bullet>
+                    <TextBlock Text="OneWay элементы показывают данные, но не могут их изменить" 
+                               TextWrapping="Wrap"/>
+                </BulletDecorator>
+
+                <BulletDecorator Margin="0,0,0,5">
+                    <BulletDecorator.Bullet>
+                        <TextBlock Text="✓" Foreground="#27AE60" FontWeight="Bold"/>
+                    </BulletDecorator.Bullet>
+                    <TextBlock Text="При изменении модели все OneWay элементы обновляются автоматически" 
+                               TextWrapping="Wrap"/>
+                </BulletDecorator>
+
+                <BulletDecorator Margin="0,0,0,5">
+                    <BulletDecorator.Bullet>
+                        <TextBlock Text="✓" Foreground="#27AE60" FontWeight="Bold"/>
+                    </BulletDecorator.Bullet>
+                    <TextBlock Text="Идеально для отображения информации, статистики, прогресса" 
+                               TextWrapping="Wrap"/>
+                </BulletDecorator>
+
+                <BulletDecorator Margin="0,0,0,5">
+                    <BulletDecorator.Bullet>
+                        <TextBlock Text="⚠️" Foreground="#E67E22" FontWeight="Bold"/>
+                    </BulletDecorator.Bullet>
+                    <TextBlock Text="В отличие от OneTime, OneWay продолжает следить за изменениями" 
+                               TextWrapping="Wrap"/>
+                </BulletDecorator>
+            </StackPanel>
+        </Border>
+    </StackPanel>
+    </ScrollViewer>
 </UserControl>
