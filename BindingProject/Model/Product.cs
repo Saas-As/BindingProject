@@ -1,53 +1,36 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace BindingProject.Model
 {
-    public class Product : INotifyPropertyChanged
+    /// <summary>
+    /// Модель Product с использованием CommunityToolkit.MVVM
+    /// </summary>
+    public partial class Product : ObservableObject
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
+        [ObservableProperty]
         private string _name;
+
+        [ObservableProperty]
         private double _price;
+
+        [ObservableProperty]
         private int _quantity;
 
-        public string Name
-        {
-            get => _name;
-            set
-            {
-                _name = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public double Price
-        {
-            get => _price;
-            set
-            {
-                _price = value;
-                OnPropertyChanged();
-                OnPropertyChanged(nameof(Total)); // Total тоже меняется
-            }
-        }
-
-        public int Quantity
-        {
-            get => _quantity;
-            set
-            {
-                _quantity = value;
-                OnPropertyChanged();
-                OnPropertyChanged(nameof(Total)); // Total тоже меняется
-            }
-        }
-
+        // Вычисляемое свойство - Total зависит от Price и Quantity
         public double Total => Price * Quantity;
 
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        // Частичный метод, который вызывается после изменения Price
+        partial void OnPriceChanged(double value)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            OnPropertyChanged(nameof(Total));
+        }
+
+        // Частичный метод, который вызывается после изменения Quantity
+        partial void OnQuantityChanged(int value)
+        {
+            OnPropertyChanged(nameof(Total));
         }
     }
 }

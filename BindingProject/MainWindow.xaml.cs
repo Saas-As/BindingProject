@@ -20,7 +20,11 @@ namespace BindingProject
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainViewModel();
+            // В ветке with-toolkit используем Toolkit ViewModel
+            DataContext = new MainViewModelToolkit();
+
+            // В ветке manual используем старую ViewModel
+            // DataContext = new MainViewModel();
         }
     }
 }

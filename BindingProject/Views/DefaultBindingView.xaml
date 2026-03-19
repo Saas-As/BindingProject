@@ -141,7 +141,7 @@
 
         <!-- КНОПКА СБРОСА -->
         <Button Content="↺ Сбросить к значениям по умолчанию" 
-                Click="ResetToDefault_Click"
+                Command="{Binding ResetProductCommand}"
                 Padding="12" Margin="0,10,0,0" 
                 HorizontalAlignment="Center"
                 Background="#3498DB" Foreground="White"

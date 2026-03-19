@@ -196,19 +196,19 @@
 
         <WrapPanel Margin="0,0,0,20">
             <Button Content="Ноутбук" 
-                    Click="SetLaptop_Click"
+                    Command="{Binding SetLaptopCommand}"
                     Padding="15,8" Margin="0,0,10,5" Background="#3498DB" Foreground="White"/>
             <Button Content="Телефон" 
-                    Click="SetPhone_Click"
+                    Command="{Binding SetPhoneCommand}"
                     Padding="15,8" Margin="0,0,10,5" Background="#3498DB" Foreground="White"/>
             <Button Content="Цена 25000" 
-                    Click="SetPrice25000_Click"
+                    Command="{Binding SetPrice25000Command}"
                     Padding="15,8" Margin="0,0,10,5" Background="#3498DB" Foreground="White"/>
             <Button Content="Цена 75000" 
-                    Click="SetPrice75000_Click"
+                    Command="{Binding SetPrice75000Command}"
                     Padding="15,8" Margin="0,0,10,5" Background="#3498DB" Foreground="White"/>
             <Button Content="Сброс" 
-                    Click="Reset_Click"
+                    Command="{Binding ResetProductCommand}"
                     Padding="15,8" Margin="0,0,10,5" Background="#E74C3C" Foreground="White"/>
         </WrapPanel>
 
