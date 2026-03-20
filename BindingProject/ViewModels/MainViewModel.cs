@@ -61,5 +61,12 @@ namespace BindingProject.ViewModels
                 OnPropertyChanged();
             }
         }
+        public void RefreshLanguage()
+        {
+            // Вызываем PropertyChanged для всех свойств, которые отображаются в интерфейсе
+            OnPropertyChanged(nameof(CurrentProduct));
+            OnPropertyChanged(nameof(LastUpdateTime));
+            OnPropertyChanged(nameof(ShowExtraInfo));
+        }
     }
 }

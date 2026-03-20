@@ -3,25 +3,43 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BindingProject"
         xmlns:views="clr-namespace:BindingProject.Views"
+        xmlns:loc="clr-namespace:BindingProject.Localization"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800">
-    <TabControl>
-        <TabItem Header="Привязка по умолчанию">
-            <views:DefaultBindingView />
-        </TabItem>
-        <TabItem Header="Двухсторонняя привязка">
-            <views:TwoWayBindingView />
-        </TabItem>
-        <TabItem Header="Одноразовая привязка">
-            <views:OneTimeBindingView />
-        </TabItem>
-        <TabItem Header="Односторонние привязки">
-            <views:OneWayBindingView />
-        </TabItem>
-        <TabItem Header="Триггеры">
-            <views:TriggersView />
-        </TabItem>
-    </TabControl>
+        Title="{loc:Translate MainWindow_Title}" 
+        Height="700" Width="900">
+
+    <DockPanel>
+        <!-- Панель с переключателем языка -->
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" 
+                    HorizontalAlignment="Right" Margin="10">
+            <TextBlock Text="{loc:Translate Language_Label}" 
+                       VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <ComboBox x:Name="LanguageComboBox" 
+                      Width="120" 
+                      SelectionChanged="LanguageComboBox_SelectionChanged">
+                <ComboBoxItem Tag="ru">Русский</ComboBoxItem>
+                <ComboBoxItem Tag="en">English</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+
+        <!-- Вкладки -->
+        <TabControl Margin="0,10,0,0">
+            <TabItem Header="{loc:Translate Tab_DefaultBinding}">
+                <views:DefaultBindingView/>
+            </TabItem>
+            <TabItem Header="{loc:Translate Tab_TwoWayBinding}">
+                <views:TwoWayBindingView/>
+            </TabItem>
+            <TabItem Header="{loc:Translate Tab_OneTimeBinding}">
+                <views:OneTimeBindingView/>
+            </TabItem>
+            <TabItem Header="{loc:Translate Tab_OneWayBinding}">
+                <views:OneWayBindingView/>
+            </TabItem>
+            <TabItem Header="{loc:Translate Tab_Triggers}">
+                <views:TriggersView/>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
 </Window>

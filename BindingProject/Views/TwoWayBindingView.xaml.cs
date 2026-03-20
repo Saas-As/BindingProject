@@ -1,21 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using BindingProject.Localization;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BindingProject.Views
 {
-    /// <summary>
-    /// Логика взаимодействия для TwoWayBindingView.xaml
-    /// </summary>
     public partial class TwoWayBindingView : UserControl
     {
         public TwoWayBindingView()
@@ -25,18 +13,29 @@ namespace BindingProject.Views
 
         private void SetHighPrice_Click(object sender, RoutedEventArgs e)
         {
-            // Находим ViewModel через DataContext
-            if (DataContext is ViewModels.MainViewModel viewModel)
+            if (DataContext is ViewModels.MainViewModel vm)
             {
-                viewModel.CurrentProduct.Price = 99999;
+                vm.CurrentProduct.Price = 99999;
+                vm.LastUpdateTime = DateTime.Now;
+
+                var langService = Application.Current.Resources["LanguageService"] as ILanguageService;
+                if (langService != null)
+                {
+                    string message = string.Format(langService.GetString("Message_PriceChanged"), vm.CurrentProduct.Price);
+                    MessageBox.Show(message);
+                }
             }
         }
 
         private void ResetName_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is ViewModels.MainViewModel viewModel)
+            if (DataContext is ViewModels.MainViewModel vm)
             {
-                viewModel.CurrentProduct.Name = "Новый товар";
+                var langService = Application.Current.Resources["LanguageService"] as ILanguageService;
+                string newName = langService?.GetString("Product_NewProduct") ?? "Новый товар";
+
+                vm.CurrentProduct.Name = newName;
+                vm.LastUpdateTime = DateTime.Now;
             }
         }
     }

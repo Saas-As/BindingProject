@@ -1,34 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using BindingProject.Localization;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BindingProject.Views
 {
-    /// <summary>
-    /// Логика взаимодействия для OneWayBindingView.xaml
-    /// </summary>
     public partial class OneWayBindingView : UserControl
     {
         public OneWayBindingView()
         {
             InitializeComponent();
         }
+
         private void SetLaptop_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext is ViewModels.MainViewModel vm)
             {
-                vm.CurrentProduct.Name = "Ноутбук ASUS";
-                vm.CurrentProduct.Price = 65000;
-                vm.CurrentProduct.Quantity = 3;
+                var langService = Application.Current.Resources["LanguageService"] as ILanguageService;
+                string productName = langService?.GetString("Product_Laptop") ?? "Ноутбук";
+
+                vm.CurrentProduct.Name = productName;
+                vm.CurrentProduct.Price = 75000;
+                vm.CurrentProduct.Quantity = 2;
                 vm.LastUpdateTime = DateTime.Now;
             }
         }
@@ -37,7 +30,10 @@ namespace BindingProject.Views
         {
             if (DataContext is ViewModels.MainViewModel vm)
             {
-                vm.CurrentProduct.Name = "Смартфон Samsung";
+                var langService = Application.Current.Resources["LanguageService"] as ILanguageService;
+                string productName = langService?.GetString("Product_Phone") ?? "Телефон";
+
+                vm.CurrentProduct.Name = productName;
                 vm.CurrentProduct.Price = 45000;
                 vm.CurrentProduct.Quantity = 5;
                 vm.LastUpdateTime = DateTime.Now;
@@ -66,7 +62,10 @@ namespace BindingProject.Views
         {
             if (DataContext is ViewModels.MainViewModel vm)
             {
-                vm.CurrentProduct.Name = "Товар";
+                var langService = Application.Current.Resources["LanguageService"] as ILanguageService;
+                string defaultName = langService?.GetString("Product_Default") ?? "Товар";
+
+                vm.CurrentProduct.Name = defaultName;
                 vm.CurrentProduct.Price = 1000;
                 vm.CurrentProduct.Quantity = 1;
                 vm.LastUpdateTime = DateTime.Now;
