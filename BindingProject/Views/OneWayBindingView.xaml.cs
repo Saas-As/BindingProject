@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -26,7 +26,7 @@ namespace BindingProject.Views
         {
             if (DataContext is ViewModels.MainViewModel vm)
             {
-                vm.CurrentProduct.Name = "Ноутбук ASUS";
+                vm.SetProductNameKey("ProductName_LaptopASUS");
                 vm.CurrentProduct.Price = 65000;
                 vm.CurrentProduct.Quantity = 3;
                 vm.LastUpdateTime = DateTime.Now;
@@ -37,7 +37,7 @@ namespace BindingProject.Views
         {
             if (DataContext is ViewModels.MainViewModel vm)
             {
-                vm.CurrentProduct.Name = "Смартфон Samsung";
+                vm.SetProductNameKey("ProductName_PhoneSamsung");
                 vm.CurrentProduct.Price = 45000;
                 vm.CurrentProduct.Quantity = 5;
                 vm.LastUpdateTime = DateTime.Now;
@@ -66,7 +66,7 @@ namespace BindingProject.Views
         {
             if (DataContext is ViewModels.MainViewModel vm)
             {
-                vm.CurrentProduct.Name = "Товар";
+                vm.SetProductNameKey("ProductName_Default");
                 vm.CurrentProduct.Price = 1000;
                 vm.CurrentProduct.Quantity = 1;
                 vm.LastUpdateTime = DateTime.Now;

@@ -1,4 +1,5 @@
-﻿using BindingProject.Model;
+using BindingProject.Model;
+using BindingProject.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,12 +13,13 @@ namespace BindingProject.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         private Product _currentProduct;
+        private string _productNameKey = "ProductName_Default";
 
         public MainViewModel()
         {
             CurrentProduct = new Product
             {
-                Name = "Товар",
+                Name = Strings.ResourceManager.GetString(_productNameKey, Strings.Culture) ?? "Товар",
                 Price = 1000,
                 Quantity = 1
             };
@@ -59,6 +61,21 @@ namespace BindingProject.ViewModels
             {
                 _lastUpdateTime = value;
                 OnPropertyChanged();
+            }
+        }
+
+        public void SetProductNameKey(string nameKey)
+        {
+            _productNameKey = nameKey;
+            UpdateProductNameFromKey();
+        }
+
+        public void UpdateProductNameFromKey()
+        {
+            var localized = Strings.ResourceManager.GetString(_productNameKey, Strings.Culture);
+            if (!string.IsNullOrEmpty(localized))
+            {
+                CurrentProduct.Name = localized;
             }
         }
     }

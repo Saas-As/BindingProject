@@ -1,14 +1,7 @@
-﻿using BindingProject.ViewModels;
-using System.Text;
+using BindingProject.ViewModels;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BindingProject
 {
@@ -21,6 +14,38 @@ namespace BindingProject
         {
             InitializeComponent();
             DataContext = new MainViewModel();
+
+            // Язык по умолчанию: русский
+            if (Application.Current?.Resources["Loc"] is ResxLocalizer loc)
+            {
+                loc.SetCulture("ru-RU");
+            }
+
+            if (LanguageComboBox.Items.Count > 0)
+            {
+                LanguageComboBox.SelectedIndex = 0;
+            }
+
+            if (DataContext is MainViewModel vm)
+            {
+                vm.UpdateProductNameFromKey();
+            }
+        }
+
+        private void LanguageComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (LanguageComboBox.SelectedItem is ComboBoxItem item && item.Tag is string cultureName)
+            {
+                if (Application.Current?.Resources["Loc"] is ResxLocalizer loc)
+                {
+                    loc.SetCulture(cultureName);
+                }
+
+                if (DataContext is MainViewModel vm)
+                {
+                    vm.UpdateProductNameFromKey();
+                }
+            }
         }
     }
 }

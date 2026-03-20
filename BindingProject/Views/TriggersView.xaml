@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="BindingProject.Views.TriggersView"
+<UserControl x:Class="BindingProject.Views.TriggersView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -10,21 +10,21 @@
 
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel Margin="20" MaxWidth="800">
-            <TextBlock Text="⚡ Триггеры в WPF"
+            <TextBlock Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_Title]}"
                        FontSize="24" FontWeight="Bold" Margin="0,0,0,10"
                        Foreground="#2C3E50"/>
 
-            <TextBlock Text="Триггеры позволяют изменять внешний вид элементов при выполнении определенных условий"
+            <TextBlock Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_Subtitle]}"
                        FontSize="14" TextWrapping="Wrap" Margin="0,0,0,20"
                        Foreground="#555"/>
 
             <!-- ============== 1. PROPERTY TRIGGER ============== -->
             <Border Background="#F0F8FF" Padding="10" Margin="0,5,0,10" CornerRadius="5">
-                <TextBlock Text="🔹 1. PropertyTrigger (свойство элемента)" 
+                <TextBlock Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_PropertyTriggerTitle]}" 
                            FontSize="18" FontWeight="Bold" Foreground="#2C3E50"/>
             </Border>
 
-            <TextBlock Text="Срабатывает при изменении свойства самого элемента (IsMouseOver, IsFocused, IsChecked)" 
+            <TextBlock Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_PropertyTriggerExplanation]}" 
                        TextWrapping="Wrap" Margin="0,0,0,10" FontStyle="Italic"/>
 
             <Grid Margin="0,0,0,20">
@@ -39,8 +39,8 @@
 
                 <!-- Пример 1: Кнопка с триггером на наведение -->
                 <StackPanel Grid.Row="0" Grid.Column="0" Margin="10">
-                    <TextBlock Text="Кнопка с триггером на наведение" FontWeight="SemiBold" Margin="0,0,0,5"/>
-                    <Button Content="Наведи мышку" Height="40" Width="150">
+                    <TextBlock Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_Example1_Title]}" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <Button Content="{Binding Source={StaticResource Loc}, Path=Item[Triggers_Button_HoverMouse]}" Height="40" Width="150">
                         <Button.Style>
                             <Style TargetType="Button">
                                 <Setter Property="Background" Value="#3498DB"/>
@@ -57,14 +57,16 @@
                             </Style>
                         </Button.Style>
                     </Button>
-                    <TextBlock Text="✓ IsMouseOver: меняет цвет, размер, шрифт" 
+                    <TextBlock Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_Example1_Hint]}" 
                                FontSize="11" Foreground="Gray" Margin="0,5,0,0"/>
                 </StackPanel>
 
                 <!-- Пример 2: CheckBox с триггером на IsChecked -->
                 <StackPanel Grid.Row="0" Grid.Column="1" Margin="10">
-                    <TextBlock Text="CheckBox с триггером на IsChecked" FontWeight="SemiBold" Margin="0,0,0,5"/>
-                    <CheckBox x:Name="SampleCheckBox" Content="Отметь меня" Margin="5"/>
+                    <TextBlock Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_Example2_Title]}" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <CheckBox x:Name="SampleCheckBox"
+                              Content="{Binding Source={StaticResource Loc}, Path=Item[Triggers_CheckBox_MarkMe]}"
+                              Margin="5"/>
                     <Border Margin="5,10,5,0" Padding="10" CornerRadius="5">
                         <Border.Style>
                             <Style TargetType="Border">
@@ -80,14 +82,14 @@
                                 </Style.Triggers>
                             </Style>
                         </Border.Style>
-                        <TextBlock Text="Цвет фона меняется при отметке" 
+                        <TextBlock Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_Example2_Hint]}" 
                                    TextWrapping="Wrap" Foreground="White"/>
                     </Border>
                 </StackPanel>
 
                 <!-- Пример 3: Текстбокс с триггером на фокус -->
                 <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
-                    <TextBlock Text="TextBox с триггером на IsFocused" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <TextBlock Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_Example3_Title]}" FontWeight="SemiBold" Margin="0,0,0,5"/>
                     <TextBox Width="300" HorizontalAlignment="Left">
                         <TextBox.Style>
                             <Style TargetType="TextBox">
@@ -105,18 +107,18 @@
                             </Style>
                         </TextBox.Style>
                     </TextBox>
-                    <TextBlock Text="✓ При фокусе: синяя рамка, голубой фон" 
+                    <TextBlock Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_Example3_Hint]}" 
                                FontSize="11" Foreground="Gray" Margin="0,5,0,0"/>
                 </StackPanel>
             </Grid>
 
             <!-- ============== 2. DATA TRIGGER ============== -->
             <Border Background="#F0F8FF" Padding="10" Margin="0,20,0,10" CornerRadius="5">
-                <TextBlock Text="🔹 2. DataTrigger (привязка к данным)" 
+                <TextBlock Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_DataTriggerTitle]}" 
                            FontSize="18" FontWeight="Bold" Foreground="#2C3E50"/>
             </Border>
 
-            <TextBlock Text="Срабатывает при изменении данных в модели (привязка к свойству)" 
+            <TextBlock Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_DataTriggerExplanation]}" 
                        TextWrapping="Wrap" Margin="0,0,0,15" FontStyle="Italic"/>
 
             <!-- Таблица товаров с DataTriggers -->
@@ -137,10 +139,18 @@
                             <ColumnDefinition Width="100"/>
                             <ColumnDefinition Width="120"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="Товар" FontWeight="Bold" Foreground="White"/>
-                        <TextBlock Grid.Column="1" Text="Цена" FontWeight="Bold" Foreground="White" HorizontalAlignment="Right"/>
-                        <TextBlock Grid.Column="2" Text="Кол-во" FontWeight="Bold" Foreground="White" HorizontalAlignment="Right"/>
-                        <TextBlock Grid.Column="3" Text="Статус" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Column="0"
+                                   Text="{Binding Source={StaticResource Loc}, Path=Item[Triggers_Table_Header_Product]}"
+                                   FontWeight="Bold" Foreground="White"/>
+                        <TextBlock Grid.Column="1"
+                                   Text="{Binding Source={StaticResource Loc}, Path=Item[Triggers_Table_Header_Price]}"
+                                   FontWeight="Bold" Foreground="White" HorizontalAlignment="Right"/>
+                        <TextBlock Grid.Column="2"
+                                   Text="{Binding Source={StaticResource Loc}, Path=Item[Triggers_Table_Header_Quantity]}"
+                                   FontWeight="Bold" Foreground="White" HorizontalAlignment="Right"/>
+                        <TextBlock Grid.Column="3"
+                                   Text="{Binding Source={StaticResource Loc}, Path=Item[Triggers_Table_Header_Status]}"
+                                   FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
                     </Grid>
                 </Border>
 
@@ -171,8 +181,15 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Grid.Column="0" Text="{Binding CurrentProduct.Name}" VerticalAlignment="Center"/>
-                        <TextBlock Grid.Column="1" Text="{Binding CurrentProduct.Price, StringFormat={}{0:N0} руб}" 
-                                   HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="1"
+                                   HorizontalAlignment="Right" VerticalAlignment="Center">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0:N0} {1}">
+                                    <Binding Path="CurrentProduct.Price"/>
+                                    <Binding Source="{StaticResource Loc}" Path="Item[Currency_RublesShort]"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
                         <TextBlock Grid.Column="2" Text="{Binding CurrentProduct.Quantity}" 
                                    HorizontalAlignment="Right" VerticalAlignment="Center"/>
 
@@ -201,16 +218,16 @@
                             <TextBlock Foreground="White">
                                 <TextBlock.Style>
                                     <Style TargetType="TextBlock">
-                                        <Setter Property="Text" Value="Обычный"/>
+                                        <Setter Property="Text" Value="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_Status_Normal]}"/>
                                         <Style.Triggers>
                                             <DataTrigger Binding="{Binding CurrentProduct.Price}" Value="0">
-                                                <Setter Property="Text" Value="Бесплатно"/>
+                                                <Setter Property="Text" Value="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_Status_Free]}"/>
                                             </DataTrigger>
                                             <DataTrigger Binding="{Binding CurrentProduct.Quantity}" Value="0">
-                                                <Setter Property="Text" Value="Нет в наличии"/>
+                                                <Setter Property="Text" Value="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_Status_NotAvailable]}"/>
                                             </DataTrigger>
                                             <DataTrigger Binding="{Binding CurrentProduct.Price}" Value="75000">
-                                                <Setter Property="Text" Value="Премиум"/>
+                                                <Setter Property="Text" Value="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_Status_Premium]}"/>
                                             </DataTrigger>
                                         </Style.Triggers>
                                     </Style>
@@ -223,11 +240,11 @@
 
             <!-- ============== 3. EVENT TRIGGER ============== -->
             <Border Background="#F0F8FF" Padding="10" Margin="0,20,0,10" CornerRadius="5">
-                <TextBlock Text="🔹 3. EventTrigger (события и анимация)" 
+                <TextBlock Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_EventTriggerTitle]}" 
                            FontSize="18" FontWeight="Bold" Foreground="#2C3E50"/>
             </Border>
 
-            <TextBlock Text="Срабатывает при возникновении события (Click, Loaded, MouseEnter) и запускает анимацию" 
+            <TextBlock Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_EventTriggerExplanation]}" 
                        TextWrapping="Wrap" Margin="0,0,0,15" FontStyle="Italic"/>
 
             <Grid Margin="0,0,0,20">
@@ -242,8 +259,10 @@
 
                 <!-- Пример 1: Кнопка с анимацией при клике -->
                 <StackPanel Grid.Row="0" Grid.Column="0" Margin="10">
-                    <TextBlock Text="Кнопка с анимацией при клике" FontWeight="SemiBold" Margin="0,0,0,5"/>
-                    <Button Name="AnimatedButton" Content="Нажми меня" Height="40" Width="150">
+                    <TextBlock Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_EventExample1_Title]}" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <Button Name="AnimatedButton"
+                            Content="{Binding Source={StaticResource Loc}, Path=Item[Triggers_Button_ClickMe]}"
+                            Height="40" Width="150">
                         <Button.Triggers>
                             <EventTrigger RoutedEvent="Button.Click">
                                 <BeginStoryboard>
@@ -268,13 +287,13 @@
                             <ScaleTransform ScaleX="1" ScaleY="1"/>
                         </Button.RenderTransform>
                     </Button>
-                    <TextBlock Text="✓ При клике: мигает и сжимается" 
+                    <TextBlock Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_EventExample1_Hint]}" 
                                FontSize="11" Foreground="Gray" Margin="0,5,0,0"/>
                 </StackPanel>
 
                 <!-- Пример 2: Квадрат с анимацией при наведении -->
                 <StackPanel Grid.Row="0" Grid.Column="1" Margin="10">
-                    <TextBlock Text="Анимация при наведении" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <TextBlock Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_EventExample2_Title]}" FontWeight="SemiBold" Margin="0,0,0,5"/>
                     <Border Name="AnimatedSquare" Width="100" Height="100" Background="#3498DB" CornerRadius="5">
                         <Border.Triggers>
                             <EventTrigger RoutedEvent="Border.MouseEnter">
@@ -313,7 +332,7 @@
 
                 <!-- Пример 3: Вращающийся текст -->
                 <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
-                    <TextBlock Text="Анимация при загрузке" FontWeight="SemiBold" Margin="0,10,0,5"/>
+                    <TextBlock Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_EventExample3_Title]}" FontWeight="SemiBold" Margin="0,10,0,5"/>
                     <Border Background="#F0F0F0" Padding="20" CornerRadius="5">
                         <Border.Triggers>
                             <EventTrigger RoutedEvent="Border.Loaded">
@@ -332,7 +351,7 @@
                         <Border.RenderTransform>
                             <RotateTransform CenterX="75" CenterY="15"/>
                         </Border.RenderTransform>
-                        <TextBlock Text="⚡ Триггеры в действии ⚡" FontSize="20" FontWeight="Bold" 
+                        <TextBlock Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_EventExample3_LargeTitle]}" FontSize="20" FontWeight="Bold" 
                                    HorizontalAlignment="Center"/>
                     </Border>
                 </StackPanel>
@@ -340,20 +359,27 @@
 
             <!-- ============== 4. MULTI TRIGGER ============== -->
             <Border Background="#F0F8FF" Padding="10" Margin="0,20,0,10" CornerRadius="5">
-                <TextBlock Text="🔹 4. MultiTrigger и MultiDataTrigger (несколько условий)" 
+                <TextBlock Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_MultiTriggerTitle]}" 
                            FontSize="18" FontWeight="Bold" Foreground="#2C3E50"/>
             </Border>
 
-            <TextBlock Text="Срабатывают при выполнении нескольких условий одновременно" 
+            <TextBlock Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_MultiTriggerExplanation]}" 
                        TextWrapping="Wrap" Margin="0,0,0,15" FontStyle="Italic"/>
 
             <Border Background="White" Padding="15" Margin="0,0,0,20" CornerRadius="5" BorderBrush="#BDC3C7" BorderThickness="1">
                 <StackPanel>
-                    <TextBlock Text="Условия для скидки:" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <TextBlock Text="{Binding Source={StaticResource Loc}, Path=Item[Triggers_Discount_ConditionsLabel]}"
+                               FontWeight="Bold" Margin="0,0,0,10"/>
 
-                    <CheckBox x:Name="IsRegularCustomer" Content="Постоянный клиент" Margin="5"/>
-                    <CheckBox x:Name="HasPromoCode" Content="Есть промокод" Margin="5"/>
-                    <CheckBox x:Name="IsHoliday" Content="Праздничный день" Margin="5"/>
+                    <CheckBox x:Name="IsRegularCustomer"
+                               Content="{Binding Source={StaticResource Loc}, Path=Item[Triggers_CheckBox_RegularCustomer]}"
+                               Margin="5"/>
+                    <CheckBox x:Name="HasPromoCode"
+                               Content="{Binding Source={StaticResource Loc}, Path=Item[Triggers_CheckBox_HasPromoCode]}"
+                               Margin="5"/>
+                    <CheckBox x:Name="IsHoliday"
+                               Content="{Binding Source={StaticResource Loc}, Path=Item[Triggers_CheckBox_IsHoliday]}"
+                               Margin="5"/>
 
                     <Border Margin="5,15,5,0" Padding="15" CornerRadius="5">
                         <Border.Style>
@@ -386,7 +412,8 @@
                         </Border.Style>
 
                         <StackPanel>
-                            <TextBlock Text="Ваша скидка:" FontWeight="Bold" Foreground="White"/>
+                            <TextBlock Text="{Binding Source={StaticResource Loc}, Path=Item[Triggers_MyDiscountLabel]}"
+                                       FontWeight="Bold" Foreground="White"/>
                             <TextBlock Foreground="White" FontSize="24" FontWeight="Bold">
                                 <TextBlock.Style>
                                     <Style TargetType="TextBlock">
@@ -419,7 +446,7 @@
             <!-- ============== ИТОГОВАЯ ТАБЛИЦА ============== -->
             <Border Background="#E8F5E9" Padding="20" Margin="0,20,0,0" CornerRadius="5">
                 <StackPanel>
-                    <TextBlock Text="📊 Сводка по триггерам:" 
+                    <TextBlock Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_SummaryTitle]}" 
                                FontWeight="Bold" FontSize="16" Margin="0,0,0,15"/>
 
                     <Grid>
@@ -434,17 +461,17 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Grid.Row="0" Grid.Column="0" Text="PropertyTrigger" FontWeight="Bold" Foreground="#2980B9"/>
-                        <TextBlock Grid.Row="0" Grid.Column="1" Text="Реагирует на свойства элемента (IsMouseOver, IsFocused и др.)" Margin="10,0"/>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_Summary_PropertyTrigger]}" FontWeight="Bold" Foreground="#2980B9"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_Summary_PropertyTriggerDescription]}" Margin="10,0"/>
 
-                        <TextBlock Grid.Row="1" Grid.Column="0" Text="DataTrigger" FontWeight="Bold" Foreground="#27AE60" Margin="0,5"/>
-                        <TextBlock Grid.Row="1" Grid.Column="1" Text="Реагирует на изменения в данных (привязка к модели)" Margin="10,5"/>
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_Summary_DataTrigger]}" FontWeight="Bold" Foreground="#27AE60" Margin="0,5"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_Summary_DataTriggerDescription]}" Margin="10,5"/>
 
-                        <TextBlock Grid.Row="2" Grid.Column="0" Text="EventTrigger" FontWeight="Bold" Foreground="#E67E22" Margin="0,5"/>
-                        <TextBlock Grid.Row="2" Grid.Column="1" Text="Запускает анимацию при событии (Click, Loaded и др.)" Margin="10,5"/>
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_Summary_EventTrigger]}" FontWeight="Bold" Foreground="#E67E22" Margin="0,5"/>
+                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_Summary_EventTriggerDescription]}" Margin="10,5"/>
 
-                        <TextBlock Grid.Row="3" Grid.Column="0" Text="MultiTrigger" FontWeight="Bold" Foreground="#8E44AD" Margin="0,5"/>
-                        <TextBlock Grid.Row="3" Grid.Column="1" Text="Срабатывает при выполнении нескольких условий" Margin="10,5"/>
+                        <TextBlock Grid.Row="3" Grid.Column="0" Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_Summary_MultiTrigger]}" FontWeight="Bold" Foreground="#8E44AD" Margin="0,5"/>
+                        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Source={StaticResource Loc}, Path=Item[TriggersView_Summary_MultiTriggerDescription]}" Margin="10,5"/>
                     </Grid>
                 </StackPanel>
             </Border>

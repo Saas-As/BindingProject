@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BindingProject.Properties;
 
 namespace BindingProject.Views
 {
@@ -29,6 +30,10 @@ namespace BindingProject.Views
             if (DataContext is ViewModels.MainViewModel viewModel)
             {
                 viewModel.CurrentProduct.Price = 99999;
+
+                MessageBox.Show(
+                    string.Format(Strings.Message_PriceChanged, viewModel.CurrentProduct.Price),
+                    Application.Current?.MainWindow?.Title);
             }
         }
 
@@ -36,7 +41,7 @@ namespace BindingProject.Views
         {
             if (DataContext is ViewModels.MainViewModel viewModel)
             {
-                viewModel.CurrentProduct.Name = "Новый товар";
+                viewModel.SetProductNameKey("ProductName_NewProduct");
             }
         }
     }

@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Button_Reset" xml:space="preserve">
+    <value>Сброс</value>
+  </data>
+  <data name="Button_SetHighPrice" xml:space="preserve">
+    <value>Установить цену 99999</value>
+  </data>
+  <data name="Button_SetLaptop" xml:space="preserve">
+    <value>Ноутбук</value>
+  </data>
+  <data name="Button_SetPhone" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+  <data name="MainWindow_Title" xml:space="preserve">
+    <value>Локализация WPF</value>
+  </data>
+  <data name="Message_PriceChanged" xml:space="preserve">
+    <value>Цена изменена на {0} рублей</value>
+  </data>
+  <data name="Product_Name" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="Product_Price" xml:space="preserve">
+    <value>Цена</value>
+  </data>
+  <data name="Product_Quantity" xml:space="preserve">
+    <value>Количество</value>
+  </data>
+  <data name="Product_Total" xml:space="preserve">
+    <value>Итого</value>
+  </data>
+  <data name="Tab_DefaultBinding" xml:space="preserve">
+    <value>Привязка по умолчанию</value>
+  </data>
+  <data name="Tab_OneTimeBinding" xml:space="preserve">
+    <value>Одноразовая привязка</value>
+  </data>
+  <data name="Tab_OneWayBinding" xml:space="preserve">
+    <value>Односторонние привязки</value>
+  </data>
+  <data name="Tab_Triggers" xml:space="preserve">
+    <value>Триггеры</value>
+  </data>
+  <data name="Tab_TwoWayBinding" xml:space="preserve">
+    <value>Двухсторонняя привязка</value>
+  </data>
+
+  <data name="Language_Label" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="Language_Russian" xml:space="preserve">
+    <value>Русский</value>
+  </data>
+  <data name="Language_English" xml:space="preserve">
+    <value>Английский</value>
+  </data>
+
+  <data name="Label_NameColon" xml:space="preserve">
+    <value>Название:</value>
+  </data>
+  <data name="Label_PriceRubColon" xml:space="preserve">
+    <value>Цена (руб):</value>
+  </data>
+  <data name="Label_QuantityColon" xml:space="preserve">
+    <value>Количество:</value>
+  </data>
+  <data name="Label_PriceColon" xml:space="preserve">
+    <value>Цена:</value>
+  </data>
+  <data name="Label_TotalAllCapsColon" xml:space="preserve">
+    <value>ИТОГО:</value>
+  </data>
+  <data name="Button_DefaultBinding_ResetToDefault" xml:space="preserve">
+    <value>↺ Сбросить к значениям по умолчанию</value>
+  </data>
+
+  <data name="Button_TwoWay_ResetNameToNewProduct" xml:space="preserve">
+    <value>Сбросить название на 'Новый товар'</value>
+  </data>
+
+  <data name="Label_NameOneTimeColon" xml:space="preserve">
+    <value>Название (OneTime):</value>
+  </data>
+  <data name="Label_PriceOneTimeColon" xml:space="preserve">
+    <value>Цена (OneTime):</value>
+  </data>
+  <data name="Label_QuantityOneTimeColon" xml:space="preserve">
+    <value>Количество (OneTime):</value>
+  </data>
+  <data name="Label_TotalColon" xml:space="preserve">
+    <value>Итого:</value>
+  </data>
+  <data name="Label_TotalOneTimeColon" xml:space="preserve">
+    <value>Итого (OneTime):</value>
+  </data>
+
+  <data name="Button_OneTime_SetLaptop" xml:space="preserve">
+    <value>Установить 'Ноутбук'</value>
+  </data>
+  <data name="Button_OneTime_SetPhone" xml:space="preserve">
+    <value>Установить 'Телефон'</value>
+  </data>
+  <data name="Button_SetPrice50000" xml:space="preserve">
+    <value>Цена 50000</value>
+  </data>
+  <data name="Button_OneTime_ResetAll" xml:space="preserve">
+    <value>Сбросить</value>
+  </data>
+
+  <data name="Label_ProgressPrice" xml:space="preserve">
+    <value>Прогресс цены:</value>
+  </data>
+  <data name="Label_LastUpdateTime" xml:space="preserve">
+    <value>Последнее изменение:</value>
+  </data>
+  <data name="Button_SetPrice25000" xml:space="preserve">
+    <value>Цена 25000</value>
+  </data>
+  <data name="Button_SetPrice75000" xml:space="preserve">
+    <value>Цена 75000</value>
+  </data>
+
+  <data name="Triggers_Button_HoverMouse" xml:space="preserve">
+    <value>Наведи мышку</value>
+  </data>
+  <data name="Triggers_CheckBox_MarkMe" xml:space="preserve">
+    <value>Отметь меня</value>
+  </data>
+  <data name="Triggers_Table_Header_Product" xml:space="preserve">
+    <value>Товар</value>
+  </data>
+  <data name="Triggers_Table_Header_Price" xml:space="preserve">
+    <value>Цена</value>
+  </data>
+  <data name="Triggers_Table_Header_Quantity" xml:space="preserve">
+    <value>Кол-во</value>
+  </data>
+  <data name="Triggers_Table_Header_Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="Triggers_Discount_ConditionsLabel" xml:space="preserve">
+    <value>Условия для скидки:</value>
+  </data>
+  <data name="Triggers_CheckBox_RegularCustomer" xml:space="preserve">
+    <value>Постоянный клиент</value>
+  </data>
+  <data name="Triggers_CheckBox_HasPromoCode" xml:space="preserve">
+    <value>Есть промокод</value>
+  </data>
+  <data name="Triggers_CheckBox_IsHoliday" xml:space="preserve">
+    <value>Праздничный день</value>
+  </data>
+  <data name="Triggers_MyDiscountLabel" xml:space="preserve">
+    <value>Ваша скидка:</value>
+  </data>
+  <data name="Triggers_Button_ClickMe" xml:space="preserve">
+    <value>Нажми меня</value>
+  </data>
+
+  <data name="DefaultBindingView_Title" xml:space="preserve">
+    <value>🔹 Привязка по умолчанию (Default)</value>
+  </data>
+  <data name="DefaultBindingView_Description" xml:space="preserve">
+    <value>Default привязка: WPF сам выбирает режим. Для TextBox это TwoWay (при потере фокуса), для TextBlock это OneWay.</value>
+  </data>
+  <data name="DefaultBindingView_EditableFieldsTitle" xml:space="preserve">
+    <value>✏️ Редактируемые поля (TextBox)</value>
+  </data>
+  <data name="DefaultBindingView_DisplayDataTitle" xml:space="preserve">
+    <value>👁️ Отображение данных (TextBlock с OneWay)</value>
+  </data>
+  <data name="DefaultBindingView_UpdateSourceTriggerDemoTitle" xml:space="preserve">
+    <value>⚡ Демонстрация UpdateSourceTrigger</value>
+  </data>
+  <data name="DefaultBindingView_NormalTextBoxLabel" xml:space="preserve">
+    <value>Обычный TextBox (обновление при потере фокуса):</value>
+  </data>
+  <data name="DefaultBindingView_PropertyChangedTextBoxLabel" xml:space="preserve">
+    <value>TextBox с PropertyChanged (обновление после каждой буквы):</value>
+  </data>
+  <data name="DefaultBindingView_DifferenceText" xml:space="preserve">
+    <value>✏️ Разница: во втором поле изменения видны сразу в блоке отображения выше</value>
+  </data>
+  <data name="DefaultBindingView_WhatDefaultShowsLabel" xml:space="preserve">
+    <value>📌 Что демонстрирует привязка Default:</value>
+  </data>
+  <data name="DefaultBindingView_Bullet1" xml:space="preserve">
+    <value>При изменении текста в полях и потере фокуса - обновляется блок отображения</value>
+  </data>
+  <data name="DefaultBindingView_Bullet2" xml:space="preserve">
+    <value>ИТОГО обновляется автоматически при изменении цены или количества</value>
+  </data>
+  <data name="DefaultBindingView_Bullet3" xml:space="preserve">
+    <value>UpdateSourceTrigger=PropertyChanged - обновление после каждого символа</value>
+  </data>
+
+  <data name="TwoWayBindingView_Title" xml:space="preserve">
+    <value>🔄 Двухсторонняя привязка (TwoWay)</value>
+  </data>
+  <data name="TwoWayBindingView_Description" xml:space="preserve">
+    <value>Двусторонняя привязка: изменения в любом поле обновляют все связанные элементы</value>
+  </data>
+  <data name="TwoWayBindingView_Example1_Title" xml:space="preserve">
+    <value>📌 ПРИМЕР 1: Два текстбокса связаны с одним свойством</value>
+  </data>
+  <data name="TwoWayBindingView_Label_ProductNameEditAnyField" xml:space="preserve">
+    <value>Название товара (редактируй любое поле):</value>
+  </data>
+  <data name="TwoWayBindingView_UpHintText" xml:space="preserve">
+    <value>⬆️ Изменяй текст в любом поле — второй обновляется сразу</value>
+  </data>
+  <data name="TwoWayBindingView_Example2_Title" xml:space="preserve">
+    <value>📌 ПРИМЕР 2: Слайдер и текстбокс для цены</value>
+  </data>
+  <data name="TwoWayBindingView_PriceInstruction" xml:space="preserve">
+    <value>Цена (двигай слайдер или вводи число):</value>
+  </data>
+  <data name="TwoWayBindingView_Example3_Title" xml:space="preserve">
+    <value>📌 ПРИМЕР 3: CheckBox управляет видимостью</value>
+  </data>
+  <data name="TwoWayBindingView_ShowExtraInfoLabel" xml:space="preserve">
+    <value>Показать дополнительную информацию</value>
+  </data>
+  <data name="TwoWayBindingView_ExtraInfoText" xml:space="preserve">
+    <value>Это дополнительная информация, которая появляется/скрывается по чекбоксу</value>
+  </data>
+  <data name="TwoWayBindingView_Example4_Title" xml:space="preserve">
+    <value>📌 ПРИМЕР 4: Изменение данных в коде</value>
+  </data>
+  <data name="TwoWayBindingView_ExplanationTitle" xml:space="preserve">
+    <value>📌 Что демонстрирует TwoWay привязка:</value>
+  </data>
+  <data name="TwoWayBindingView_ExplanationBullet1" xml:space="preserve">
+    <value>• Изменения в интерфейсе → обновляют модель</value>
+  </data>
+  <data name="TwoWayBindingView_ExplanationBullet2" xml:space="preserve">
+    <value>• Изменения в модели (кнопки) → обновляют интерфейс</value>
+  </data>
+  <data name="TwoWayBindingView_ExplanationBullet3" xml:space="preserve">
+    <value>• Все элементы синхронизированы между собой</value>
+  </data>
+
+  <data name="OneWayBindingView_Title" xml:space="preserve">
+    <value>➡️ Односторонние привязки (OneWay)</value>
+  </data>
+  <data name="OneWayBindingView_DescPart1" xml:space="preserve">
+    <value>OneWay привязка: данные текут</value>
+  </data>
+  <data name="OneWayBindingView_DescPart2" xml:space="preserve">
+    <value>только из модели в интерфейс</value>
+  </data>
+  <data name="OneWayBindingView_DescPart3" xml:space="preserve">
+    <value>. Пользователь может видеть данные, но не может их изменить через этот элемент.</value>
+  </data>
+  <data name="OneWayBindingView_Example1_Title" xml:space="preserve">
+    <value>📌 ПРИМЕР 1: TextBlock с OneWay (только просмотр)</value>
+  </data>
+  <data name="OneWayBindingView_Header_EditTwoWay" xml:space="preserve">
+    <value>Редактирование (TwoWay)</value>
+  </data>
+  <data name="OneWayBindingView_Header_ViewOneWay" xml:space="preserve">
+    <value>Просмотр (OneWay)</value>
+  </data>
+  <data name="OneWayBindingView_Example2_Title" xml:space="preserve">
+    <value>📊 ПРИМЕР 2: Визуальные элементы с OneWay</value>
+  </data>
+  <data name="OneWayBindingView_Example3_Title" xml:space="preserve">
+    <value>🎚️ ПРИМЕР 3: Слайдер (TwoWay) и индикаторы (OneWay)</value>
+  </data>
+  <data name="OneWayBindingView_ControlSliderLabel" xml:space="preserve">
+    <value>Управляй ценой через слайдер:</value>
+  </data>
+  <data name="OneWayBindingView_CurrentPriceLabel" xml:space="preserve">
+    <value>Текущая цена: </value>
+  </data>
+  <data name="OneWayBindingView_ProductNameLabel" xml:space="preserve">
+    <value>Название товара: </value>
+  </data>
+  <data name="OneWayBindingView_Example4_Title" xml:space="preserve">
+    <value>🔄 ПРИМЕР 4: OneWay vs OneTime (наглядное сравнение)</value>
+  </data>
+  <data name="OneWayBindingView_CompareGrid_Header_Editor" xml:space="preserve">
+    <value>Редактор (TwoWay)</value>
+  </data>
+  <data name="OneWayBindingView_CompareGrid_Header_OneWay" xml:space="preserve">
+    <value>OneWay (обновляется)</value>
+  </data>
+  <data name="OneWayBindingView_CompareGrid_Header_OneTime" xml:space="preserve">
+    <value>OneTime (застыл)</value>
+  </data>
+  <data name="OneWayBindingView_TestButtonsTitle" xml:space="preserve">
+    <value>🎮 Тестовые кнопки (меняют данные в модели)</value>
+  </data>
+  <data name="OneWayBindingView_ExplanationTitle" xml:space="preserve">
+    <value>📌 Что демонстрирует OneWay привязка:</value>
+  </data>
+  <data name="OneWayBindingView_Bullet1" xml:space="preserve">
+    <value>OneWay элементы показывают данные, но не могут их изменить</value>
+  </data>
+  <data name="OneWayBindingView_Bullet2" xml:space="preserve">
+    <value>При изменении модели все OneWay элементы обновляются автоматически</value>
+  </data>
+  <data name="OneWayBindingView_Bullet3" xml:space="preserve">
+    <value>Идеально для отображения информации, статистики, прогресса</value>
+  </data>
+  <data name="OneWayBindingView_Bullet4" xml:space="preserve">
+    <value>В отличие от OneTime, OneWay продолжает следить за изменениями</value>
+  </data>
+
+  <data name="OneTimeBindingView_Title" xml:space="preserve">
+    <value>⏱️ Одноразовая привязка (OneTime)</value>
+  </data>
+  <data name="OneTimeBindingView_DescPart1" xml:space="preserve">
+    <value>OneTime привязка обновляет интерфейс </value>
+  </data>
+  <data name="OneTimeBindingView_DescPart2" xml:space="preserve">
+    <value>только один раз</value>
+  </data>
+  <data name="OneTimeBindingView_DescPart3" xml:space="preserve">
+    <value>при загрузке. Дальнейшие изменения данных </value>
+  </data>
+  <data name="OneTimeBindingView_DescPart4" xml:space="preserve">
+    <value>не обновляют</value>
+  </data>
+  <data name="OneTimeBindingView_DescPart5" xml:space="preserve">
+    <value>интерфейс, даже если модель оповещает об изменениях.</value>
+  </data>
+  <data name="OneTimeBindingView_Example1_Title" xml:space="preserve">
+    <value>📌 ПРИМЕР 1: OneTime привязка (не обновляется)</value>
+  </data>
+  <data name="OneTimeBindingView_Header_Editor" xml:space="preserve">
+    <value>Редактируемые поля (TwoWay)</value>
+  </data>
+  <data name="OneTimeBindingView_Header_OneTimeFixed" xml:space="preserve">
+    <value>OneTime привязка (не меняется)</value>
+  </data>
+  <data name="OneTimeBindingView_Section_ChangeDataInCode" xml:space="preserve">
+    <value>🔄 Изменяем данные в коде</value>
+  </data>
+  <data name="OneTimeBindingView_SliderDemoTitle" xml:space="preserve">
+    <value>🎚️ Слайдер меняет цену (TwoWay)</value>
+  </data>
+  <data name="OneTimeBindingView_PriceLabel" xml:space="preserve">
+    <value>Цена: </value>
+  </data>
+  <data name="OneTimeBindingView_ExplanationTitle" xml:space="preserve">
+    <value>📌 Что демонстрирует OneTime привязка:</value>
+  </data>
+  <data name="OneTimeBindingView_Bullet_LeftColumn" xml:space="preserve">
+    <value>Левая колонка (TwoWay) - данные обновляются при любых изменениях</value>
+  </data>
+  <data name="OneTimeBindingView_Bullet_RightColumnFixed" xml:space="preserve">
+    <value>Правая колонка (OneTime) - застыла при загрузке и не меняется</value>
+  </data>
+  <data name="OneTimeBindingView_Bullet_KeepRightColumnUnchanged" xml:space="preserve">
+    <value>Нажимай кнопки, двигай слайдер - правая колонка остается неизменной</value>
+  </data>
+  <data name="OneTimeBindingView_Conclusion" xml:space="preserve">
+    <value>📝 Вывод: OneTime привязка берет значение модели один раз при загрузке и больше не обновляется, даже если модель меняется</value>
+  </data>
+
+  <data name="TriggersView_Title" xml:space="preserve">
+    <value>⚡ Триггеры в WPF</value>
+  </data>
+  <data name="TriggersView_Subtitle" xml:space="preserve">
+    <value>Триггеры позволяют изменять внешний вид элементов при выполнении определенных условий</value>
+  </data>
+  <data name="TriggersView_PropertyTriggerTitle" xml:space="preserve">
+    <value>🔹 1. PropertyTrigger (свойство элемента)</value>
+  </data>
+  <data name="TriggersView_PropertyTriggerExplanation" xml:space="preserve">
+    <value>Срабатывает при изменении свойства самого элемента (IsMouseOver, IsFocused, IsChecked)</value>
+  </data>
+  <data name="TriggersView_Example1_Title" xml:space="preserve">
+    <value>Кнопка с триггером на наведение</value>
+  </data>
+  <data name="TriggersView_Example1_Hint" xml:space="preserve">
+    <value>✓ IsMouseOver: меняет цвет, размер, шрифт</value>
+  </data>
+  <data name="TriggersView_Example2_Title" xml:space="preserve">
+    <value>CheckBox с триггером на IsChecked</value>
+  </data>
+  <data name="TriggersView_Example2_Hint" xml:space="preserve">
+    <value>Цвет фона меняется при отметке</value>
+  </data>
+  <data name="TriggersView_Example3_Title" xml:space="preserve">
+    <value>TextBox с триггером на IsFocused</value>
+  </data>
+  <data name="TriggersView_Example3_Hint" xml:space="preserve">
+    <value>✓ При фокусе: синяя рамка, голубой фон</value>
+  </data>
+  <data name="TriggersView_DataTriggerTitle" xml:space="preserve">
+    <value>🔹 2. DataTrigger (привязка к данным)</value>
+  </data>
+  <data name="TriggersView_DataTriggerExplanation" xml:space="preserve">
+    <value>Срабатывает при изменении данных в модели (привязка к свойству)</value>
+  </data>
+  <data name="TriggersView_Status_Normal" xml:space="preserve">
+    <value>Обычный</value>
+  </data>
+  <data name="TriggersView_Status_Free" xml:space="preserve">
+    <value>Бесплатно</value>
+  </data>
+  <data name="TriggersView_Status_NotAvailable" xml:space="preserve">
+    <value>Нет в наличии</value>
+  </data>
+  <data name="TriggersView_Status_Premium" xml:space="preserve">
+    <value>Премиум</value>
+  </data>
+  <data name="TriggersView_EventTriggerTitle" xml:space="preserve">
+    <value>🔹 3. EventTrigger (события и анимация)</value>
+  </data>
+  <data name="TriggersView_EventTriggerExplanation" xml:space="preserve">
+    <value>Срабатывает при возникновении события (Click, Loaded, MouseEnter) и запускает анимацию</value>
+  </data>
+  <data name="TriggersView_EventExample1_Title" xml:space="preserve">
+    <value>Кнопка с анимацией при клике</value>
+  </data>
+  <data name="TriggersView_EventExample1_Hint" xml:space="preserve">
+    <value>✓ При клике: мигает и сжимается</value>
+  </data>
+  <data name="TriggersView_EventExample2_Title" xml:space="preserve">
+    <value>Анимация при наведении</value>
+  </data>
+  <data name="TriggersView_EventExample3_Title" xml:space="preserve">
+    <value>Анимация при загрузке</value>
+  </data>
+  <data name="TriggersView_EventExample3_LargeTitle" xml:space="preserve">
+    <value>⚡ Триггеры в действии ⚡</value>
+  </data>
+  <data name="TriggersView_MultiTriggerTitle" xml:space="preserve">
+    <value>🔹 4. MultiTrigger и MultiDataTrigger (несколько условий)</value>
+  </data>
+  <data name="TriggersView_MultiTriggerExplanation" xml:space="preserve">
+    <value>Срабатывают при выполнении нескольких условий одновременно</value>
+  </data>
+  <data name="TriggersView_SummaryTitle" xml:space="preserve">
+    <value>📊 Сводка по триггерам:</value>
+  </data>
+  <data name="TriggersView_Summary_PropertyTrigger" xml:space="preserve">
+    <value>PropertyTrigger</value>
+  </data>
+  <data name="TriggersView_Summary_PropertyTriggerDescription" xml:space="preserve">
+    <value>Реагирует на свойства элемента (IsMouseOver, IsFocused и др.)</value>
+  </data>
+  <data name="TriggersView_Summary_DataTrigger" xml:space="preserve">
+    <value>DataTrigger</value>
+  </data>
+  <data name="TriggersView_Summary_DataTriggerDescription" xml:space="preserve">
+    <value>Реагирует на изменения в данных (привязка к модели)</value>
+  </data>
+  <data name="TriggersView_Summary_EventTrigger" xml:space="preserve">
+    <value>EventTrigger</value>
+  </data>
+  <data name="TriggersView_Summary_EventTriggerDescription" xml:space="preserve">
+    <value>Запускает анимацию при событии (Click, Loaded и др.)</value>
+  </data>
+  <data name="TriggersView_Summary_MultiTrigger" xml:space="preserve">
+    <value>MultiTrigger</value>
+  </data>
+  <data name="TriggersView_Summary_MultiTriggerDescription" xml:space="preserve">
+    <value>Срабатывает при выполнении нескольких условий</value>
+  </data>
+
+  <data name="ProductName_Default" xml:space="preserve">
+    <value>Товар</value>
+  </data>
+  <data name="ProductName_NewProduct" xml:space="preserve">
+    <value>Новый товар</value>
+  </data>
+  <data name="ProductName_LaptopASUS" xml:space="preserve">
+    <value>Ноутбук ASUS</value>
+  </data>
+  <data name="ProductName_PhoneSamsung" xml:space="preserve">
+    <value>Смартфон Samsung</value>
+  </data>
+  <data name="ProductName_Laptop" xml:space="preserve">
+    <value>Ноутбук</value>
+  </data>
+  <data name="ProductName_Phone" xml:space="preserve">
+    <value>Смартфон</value>
+  </data>
+
+  <data name="Currency_RublesLong" xml:space="preserve">
+    <value>рублей</value>
+  </data>
+  <data name="Currency_RublesShort" xml:space="preserve">
+    <value>руб</value>
+  </data>
+</root>

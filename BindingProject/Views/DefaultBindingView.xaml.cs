@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -27,7 +27,7 @@ namespace BindingProject.Views
         {
             if (DataContext is ViewModels.MainViewModel vm)
             {
-                vm.CurrentProduct.Name = "Товар";
+                vm.SetProductNameKey("ProductName_Default");
                 vm.CurrentProduct.Price = 1000;
                 vm.CurrentProduct.Quantity = 1;
             }

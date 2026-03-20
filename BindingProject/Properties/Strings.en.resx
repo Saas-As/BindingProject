@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Button_Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="Button_SetHighPrice" xml:space="preserve">
+    <value>Set price to 99999</value>
+  </data>
+  <data name="Button_SetLaptop" xml:space="preserve">
+    <value>Laptop</value>
+  </data>
+  <data name="Button_SetPhone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="MainWindow_Title" xml:space="preserve">
+    <value>WPF Localization</value>
+  </data>
+  <data name="Message_PriceChanged" xml:space="preserve">
+    <value>Price changed to {0} rubles</value>
+  </data>
+  <data name="Product_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Product_Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="Product_Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="Product_Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="Tab_DefaultBinding" xml:space="preserve">
+    <value>Default Binding</value>
+  </data>
+  <data name="Tab_OneTimeBinding" xml:space="preserve">
+    <value>One-Time Binding</value>
+  </data>
+  <data name="Tab_OneWayBinding" xml:space="preserve">
+    <value>One-Way Bindings</value>
+  </data>
+  <data name="Tab_Triggers" xml:space="preserve">
+    <value>Triggers</value>
+  </data>
+  <data name="Tab_TwoWayBinding" xml:space="preserve">
+    <value>Two-Way Binding</value>
+  </data>
+  <data name="Language_Label" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Language_Russian" xml:space="preserve">
+    <value>Русский</value>
+  </data>
+  <data name="Language_English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Label_NameColon" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="Label_PriceRubColon" xml:space="preserve">
+    <value>Price (rubles):</value>
+  </data>
+  <data name="Label_QuantityColon" xml:space="preserve">
+    <value>Quantity:</value>
+  </data>
+  <data name="Label_PriceColon" xml:space="preserve">
+    <value>Price:</value>
+  </data>
+  <data name="Label_TotalAllCapsColon" xml:space="preserve">
+    <value>TOTAL:</value>
+  </data>
+  <data name="Button_DefaultBinding_ResetToDefault" xml:space="preserve">
+    <value>↺ Reset to default values</value>
+  </data>
+  <data name="Button_TwoWay_ResetNameToNewProduct" xml:space="preserve">
+    <value>Reset name to 'New product'</value>
+  </data>
+  <data name="Label_NameOneTimeColon" xml:space="preserve">
+    <value>Name (OneTime):</value>
+  </data>
+  <data name="Label_PriceOneTimeColon" xml:space="preserve">
+    <value>Price (OneTime):</value>
+  </data>
+  <data name="Label_QuantityOneTimeColon" xml:space="preserve">
+    <value>Quantity (OneTime):</value>
+  </data>
+  <data name="Label_TotalColon" xml:space="preserve">
+    <value>Total:</value>
+  </data>
+  <data name="Label_TotalOneTimeColon" xml:space="preserve">
+    <value>Total (OneTime):</value>
+  </data>
+  <data name="Button_OneTime_SetLaptop" xml:space="preserve">
+    <value>Set 'Laptop'</value>
+  </data>
+  <data name="Button_OneTime_SetPhone" xml:space="preserve">
+    <value>Set 'Phone'</value>
+  </data>
+  <data name="Button_SetPrice50000" xml:space="preserve">
+    <value>Price 50000</value>
+  </data>
+  <data name="Button_OneTime_ResetAll" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="Label_ProgressPrice" xml:space="preserve">
+    <value>Price progress:</value>
+  </data>
+  <data name="Label_LastUpdateTime" xml:space="preserve">
+    <value>Last change:</value>
+  </data>
+  <data name="Button_SetPrice25000" xml:space="preserve">
+    <value>Price 25000</value>
+  </data>
+  <data name="Button_SetPrice75000" xml:space="preserve">
+    <value>Price 75000</value>
+  </data>
+  <data name="Triggers_Button_HoverMouse" xml:space="preserve">
+    <value>Hover the mouse</value>
+  </data>
+  <data name="Triggers_CheckBox_MarkMe" xml:space="preserve">
+    <value>Check me</value>
+  </data>
+  <data name="Triggers_Table_Header_Product" xml:space="preserve">
+    <value>Item</value>
+  </data>
+  <data name="Triggers_Table_Header_Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="Triggers_Table_Header_Quantity" xml:space="preserve">
+    <value>Qty</value>
+  </data>
+  <data name="Triggers_Table_Header_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Triggers_Discount_ConditionsLabel" xml:space="preserve">
+    <value>Discount conditions:</value>
+  </data>
+  <data name="Triggers_CheckBox_RegularCustomer" xml:space="preserve">
+    <value>Regular customer</value>
+  </data>
+  <data name="Triggers_CheckBox_HasPromoCode" xml:space="preserve">
+    <value>Has promo code</value>
+  </data>
+  <data name="Triggers_CheckBox_IsHoliday" xml:space="preserve">
+    <value>Holiday</value>
+  </data>
+  <data name="Triggers_MyDiscountLabel" xml:space="preserve">
+    <value>Your discount:</value>
+  </data>
+  <data name="Triggers_Button_ClickMe" xml:space="preserve">
+    <value>Click me</value>
+  </data>
+  <data name="DefaultBindingView_Title" xml:space="preserve">
+    <value>🔹 Default Binding (Default)</value>
+  </data>
+  <data name="DefaultBindingView_Description" xml:space="preserve">
+    <value>Default binding: WPF chooses the mode automatically. For TextBox it is TwoWay (when focus is lost), for TextBlock it is OneWay.</value>
+  </data>
+  <data name="DefaultBindingView_EditableFieldsTitle" xml:space="preserve">
+    <value>✏️ Editable fields (TextBox)</value>
+  </data>
+  <data name="DefaultBindingView_DisplayDataTitle" xml:space="preserve">
+    <value>👁️ Displaying data (TextBlock with OneWay)</value>
+  </data>
+  <data name="DefaultBindingView_UpdateSourceTriggerDemoTitle" xml:space="preserve">
+    <value>⚡ UpdateSourceTrigger demonstration</value>
+  </data>
+  <data name="DefaultBindingView_NormalTextBoxLabel" xml:space="preserve">
+    <value>Normal TextBox (updates when focus is lost):</value>
+  </data>
+  <data name="DefaultBindingView_PropertyChangedTextBoxLabel" xml:space="preserve">
+    <value>TextBox with PropertyChanged (updates after every character):</value>
+  </data>
+  <data name="DefaultBindingView_DifferenceText" xml:space="preserve">
+    <value>✏️ Difference: in the second field changes are visible immediately in the display block above</value>
+  </data>
+  <data name="DefaultBindingView_WhatDefaultShowsLabel" xml:space="preserve">
+    <value>📌 What the Default binding demonstrates:</value>
+  </data>
+  <data name="DefaultBindingView_Bullet1" xml:space="preserve">
+    <value>When you change the text in the fields and lose focus, the display block is updated</value>
+  </data>
+  <data name="DefaultBindingView_Bullet2" xml:space="preserve">
+    <value>TOTAL updates automatically when price or quantity changes</value>
+  </data>
+  <data name="DefaultBindingView_Bullet3" xml:space="preserve">
+    <value>UpdateSourceTrigger=PropertyChanged - updates after each symbol</value>
+  </data>
+  <data name="TwoWayBindingView_Title" xml:space="preserve">
+    <value>🔄 Two-Way Binding (TwoWay)</value>
+  </data>
+  <data name="TwoWayBindingView_Description" xml:space="preserve">
+    <value>Two-way binding: changes in any field update all connected elements</value>
+  </data>
+  <data name="TwoWayBindingView_Example1_Title" xml:space="preserve">
+    <value>📌 EXAMPLE 1: Two textboxes are linked to one property</value>
+  </data>
+  <data name="TwoWayBindingView_Label_ProductNameEditAnyField" xml:space="preserve">
+    <value>Product name (edit any field):</value>
+  </data>
+  <data name="TwoWayBindingView_UpHintText" xml:space="preserve">
+    <value>⬆️ Change the text in any field — the second one updates immediately</value>
+  </data>
+  <data name="TwoWayBindingView_Example2_Title" xml:space="preserve">
+    <value>📌 EXAMPLE 2: Slider and textbox for the price</value>
+  </data>
+  <data name="TwoWayBindingView_PriceInstruction" xml:space="preserve">
+    <value>Price (move the slider or enter a number):</value>
+  </data>
+  <data name="TwoWayBindingView_Example3_Title" xml:space="preserve">
+    <value>📌 EXAMPLE 3: CheckBox controls visibility</value>
+  </data>
+  <data name="TwoWayBindingView_ShowExtraInfoLabel" xml:space="preserve">
+    <value>Show additional information</value>
+  </data>
+  <data name="TwoWayBindingView_ExtraInfoText" xml:space="preserve">
+    <value>This is additional information that appears/disappears based on the checkbox</value>
+  </data>
+  <data name="TwoWayBindingView_Example4_Title" xml:space="preserve">
+    <value>📌 EXAMPLE 4: Changing data in code</value>
+  </data>
+  <data name="TwoWayBindingView_ExplanationTitle" xml:space="preserve">
+    <value>📌 What the TwoWay binding demonstrates:</value>
+  </data>
+  <data name="TwoWayBindingView_ExplanationBullet1" xml:space="preserve">
+    <value>• Changes in the UI → update the model</value>
+  </data>
+  <data name="TwoWayBindingView_ExplanationBullet2" xml:space="preserve">
+    <value>• Changes in the model (buttons) → update the UI</value>
+  </data>
+  <data name="TwoWayBindingView_ExplanationBullet3" xml:space="preserve">
+    <value>• All elements are synchronized with each other</value>
+  </data>
+  <data name="OneWayBindingView_Title" xml:space="preserve">
+    <value>➡️ One-Way Bindings (OneWay)</value>
+  </data>
+  <data name="OneWayBindingView_DescPart1" xml:space="preserve">
+    <value>OneWay binding: data flows</value>
+  </data>
+  <data name="OneWayBindingView_DescPart2" xml:space="preserve">
+    <value>only from the model to the interface</value>
+  </data>
+  <data name="OneWayBindingView_DescPart3" xml:space="preserve">
+    <value>. The user can see the data but cannot change it through this element.</value>
+  </data>
+  <data name="OneWayBindingView_Example1_Title" xml:space="preserve">
+    <value>📌 EXAMPLE 1: TextBlock with OneWay (read-only)</value>
+  </data>
+  <data name="OneWayBindingView_Header_EditTwoWay" xml:space="preserve">
+    <value>Editing (TwoWay)</value>
+  </data>
+  <data name="OneWayBindingView_Header_ViewOneWay" xml:space="preserve">
+    <value>Viewing (OneWay)</value>
+  </data>
+  <data name="OneWayBindingView_Example2_Title" xml:space="preserve">
+    <value>📊 EXAMPLE 2: Visual elements with OneWay</value>
+  </data>
+  <data name="OneWayBindingView_Example3_Title" xml:space="preserve">
+    <value>🎚️ EXAMPLE 3: Slider (TwoWay) and indicators (OneWay)</value>
+  </data>
+  <data name="OneWayBindingView_ControlSliderLabel" xml:space="preserve">
+    <value>Control the price with the slider:</value>
+  </data>
+  <data name="OneWayBindingView_CurrentPriceLabel" xml:space="preserve">
+    <value>Current price: </value>
+  </data>
+  <data name="OneWayBindingView_ProductNameLabel" xml:space="preserve">
+    <value>Product name: </value>
+  </data>
+  <data name="OneWayBindingView_Example4_Title" xml:space="preserve">
+    <value>🔄 EXAMPLE 4: OneWay vs OneTime (clear comparison)</value>
+  </data>
+  <data name="OneWayBindingView_CompareGrid_Header_Editor" xml:space="preserve">
+    <value>Editor (TwoWay)</value>
+  </data>
+  <data name="OneWayBindingView_CompareGrid_Header_OneWay" xml:space="preserve">
+    <value>OneWay (updates)</value>
+  </data>
+  <data name="OneWayBindingView_CompareGrid_Header_OneTime" xml:space="preserve">
+    <value>OneTime (fixed)</value>
+  </data>
+  <data name="OneWayBindingView_TestButtonsTitle" xml:space="preserve">
+    <value>🎮 Test buttons (change data in the model)</value>
+  </data>
+  <data name="OneWayBindingView_ExplanationTitle" xml:space="preserve">
+    <value>📌 What the OneWay binding demonstrates:</value>
+  </data>
+  <data name="OneWayBindingView_Bullet1" xml:space="preserve">
+    <value>OneWay elements display data but cannot change it</value>
+  </data>
+  <data name="OneWayBindingView_Bullet2" xml:space="preserve">
+    <value>When the model changes, all OneWay elements update automatically</value>
+  </data>
+  <data name="OneWayBindingView_Bullet3" xml:space="preserve">
+    <value>Perfect for displaying information, statistics, and progress</value>
+  </data>
+  <data name="OneWayBindingView_Bullet4" xml:space="preserve">
+    <value>Unlike OneTime, OneWay continues to monitor changes</value>
+  </data>
+  <data name="OneTimeBindingView_Title" xml:space="preserve">
+    <value>⏱️ One-Time Binding (OneTime)</value>
+  </data>
+  <data name="OneTimeBindingView_DescPart1" xml:space="preserve">
+    <value>OneTime binding updates the interface </value>
+  </data>
+  <data name="OneTimeBindingView_DescPart2" xml:space="preserve">
+    <value>only once</value>
+  </data>
+  <data name="OneTimeBindingView_DescPart3" xml:space="preserve">
+    <value>at load time. Further data changes </value>
+  </data>
+  <data name="OneTimeBindingView_DescPart4" xml:space="preserve">
+    <value>do not update</value>
+  </data>
+  <data name="OneTimeBindingView_DescPart5" xml:space="preserve">
+    <value>the interface even if the model notifies about changes.</value>
+  </data>
+  <data name="OneTimeBindingView_Example1_Title" xml:space="preserve">
+    <value>📌 EXAMPLE 1: OneTime binding (does not update)</value>
+  </data>
+  <data name="OneTimeBindingView_Header_Editor" xml:space="preserve">
+    <value>Editable fields (TwoWay)</value>
+  </data>
+  <data name="OneTimeBindingView_Header_OneTimeFixed" xml:space="preserve">
+    <value>OneTime binding (does not change)</value>
+  </data>
+  <data name="OneTimeBindingView_Section_ChangeDataInCode" xml:space="preserve">
+    <value>🔄 Change data in code</value>
+  </data>
+  <data name="OneTimeBindingView_SliderDemoTitle" xml:space="preserve">
+    <value>🎚️ Slider changes the price (TwoWay)</value>
+  </data>
+  <data name="OneTimeBindingView_PriceLabel" xml:space="preserve">
+    <value>Price: </value>
+  </data>
+  <data name="OneTimeBindingView_ExplanationTitle" xml:space="preserve">
+    <value>📌 What the OneTime binding demonstrates:</value>
+  </data>
+  <data name="OneTimeBindingView_Bullet_LeftColumn" xml:space="preserve">
+    <value>Left column (TwoWay) - data updates for any change</value>
+  </data>
+  <data name="OneTimeBindingView_Bullet_RightColumnFixed" xml:space="preserve">
+    <value>Right column (OneTime) - frozen after load and does not change</value>
+  </data>
+  <data name="OneTimeBindingView_Bullet_KeepRightColumnUnchanged" xml:space="preserve">
+    <value>Click the buttons and move the slider — the right column stays unchanged</value>
+  </data>
+  <data name="OneTimeBindingView_Conclusion" xml:space="preserve">
+    <value>📝 Conclusion: OneTime binding takes the model value once on load and no longer updates, even if the model changes</value>
+  </data>
+  <data name="TriggersView_Title" xml:space="preserve">
+    <value>⚡ Triggers in WPF</value>
+  </data>
+  <data name="TriggersView_Subtitle" xml:space="preserve">
+    <value>Triggers allow changing the appearance of elements when certain conditions are met</value>
+  </data>
+  <data name="TriggersView_PropertyTriggerTitle" xml:space="preserve">
+    <value>🔹 1. PropertyTrigger (element property)</value>
+  </data>
+  <data name="TriggersView_PropertyTriggerExplanation" xml:space="preserve">
+    <value>Fires when the element's own property changes (IsMouseOver, IsFocused, IsChecked)</value>
+  </data>
+  <data name="TriggersView_Example1_Title" xml:space="preserve">
+    <value>Button with a hover trigger</value>
+  </data>
+  <data name="TriggersView_Example1_Hint" xml:space="preserve">
+    <value>✓ IsMouseOver: changes color, size, and font</value>
+  </data>
+  <data name="TriggersView_Example2_Title" xml:space="preserve">
+    <value>CheckBox with a trigger on IsChecked</value>
+  </data>
+  <data name="TriggersView_Example2_Hint" xml:space="preserve">
+    <value>The background color changes when checked</value>
+  </data>
+  <data name="TriggersView_Example3_Title" xml:space="preserve">
+    <value>TextBox with a trigger on IsFocused</value>
+  </data>
+  <data name="TriggersView_Example3_Hint" xml:space="preserve">
+    <value>✓ On focus: blue border, light blue background</value>
+  </data>
+  <data name="TriggersView_DataTriggerTitle" xml:space="preserve">
+    <value>🔹 2. DataTrigger (data binding)</value>
+  </data>
+  <data name="TriggersView_DataTriggerExplanation" xml:space="preserve">
+    <value>Fires when data changes in the model (binding to a property)</value>
+  </data>
+  <data name="TriggersView_Status_Normal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="TriggersView_Status_Free" xml:space="preserve">
+    <value>Free</value>
+  </data>
+  <data name="TriggersView_Status_NotAvailable" xml:space="preserve">
+    <value>Out of stock</value>
+  </data>
+  <data name="TriggersView_Status_Premium" xml:space="preserve">
+    <value>Premium</value>
+  </data>
+  <data name="TriggersView_EventTriggerTitle" xml:space="preserve">
+    <value>🔹 3. EventTrigger (events and animation)</value>
+  </data>
+  <data name="TriggersView_EventTriggerExplanation" xml:space="preserve">
+    <value>Fires when an event occurs (Click, Loaded, MouseEnter) and starts an animation</value>
+  </data>
+  <data name="TriggersView_EventExample1_Title" xml:space="preserve">
+    <value>Button with a click animation</value>
+  </data>
+  <data name="TriggersView_EventExample1_Hint" xml:space="preserve">
+    <value>✓ On click: blinks and shrinks</value>
+  </data>
+  <data name="TriggersView_EventExample2_Title" xml:space="preserve">
+    <value>Hover animation</value>
+  </data>
+  <data name="TriggersView_EventExample3_Title" xml:space="preserve">
+    <value>Animation on load</value>
+  </data>
+  <data name="TriggersView_EventExample3_LargeTitle" xml:space="preserve">
+    <value>⚡ Triggers in action ⚡</value>
+  </data>
+  <data name="TriggersView_MultiTriggerTitle" xml:space="preserve">
+    <value>🔹 4. MultiTrigger and MultiDataTrigger (multiple conditions)</value>
+  </data>
+  <data name="TriggersView_MultiTriggerExplanation" xml:space="preserve">
+    <value>They fire when multiple conditions are met at the same time</value>
+  </data>
+  <data name="TriggersView_SummaryTitle" xml:space="preserve">
+    <value>📊 Triggers summary:</value>
+  </data>
+  <data name="TriggersView_Summary_PropertyTrigger" xml:space="preserve">
+    <value>PropertyTrigger</value>
+  </data>
+  <data name="TriggersView_Summary_PropertyTriggerDescription" xml:space="preserve">
+    <value>Reacts to element properties (IsMouseOver, IsFocused, etc.)</value>
+  </data>
+  <data name="TriggersView_Summary_DataTrigger" xml:space="preserve">
+    <value>DataTrigger</value>
+  </data>
+  <data name="TriggersView_Summary_DataTriggerDescription" xml:space="preserve">
+    <value>Reacts to data changes (model binding)</value>
+  </data>
+  <data name="TriggersView_Summary_EventTrigger" xml:space="preserve">
+    <value>EventTrigger</value>
+  </data>
+  <data name="TriggersView_Summary_EventTriggerDescription" xml:space="preserve">
+    <value>Starts animation when an event occurs (Click, Loaded, etc.)</value>
+  </data>
+  <data name="TriggersView_Summary_MultiTrigger" xml:space="preserve">
+    <value>MultiTrigger</value>
+  </data>
+  <data name="TriggersView_Summary_MultiTriggerDescription" xml:space="preserve">
+    <value>Fires when multiple conditions are satisfied</value>
+  </data>
+  <data name="ProductName_Default" xml:space="preserve">
+    <value>Item</value>
+  </data>
+  <data name="ProductName_NewProduct" xml:space="preserve">
+    <value>New product</value>
+  </data>
+  <data name="ProductName_LaptopASUS" xml:space="preserve">
+    <value>ASUS laptop</value>
+  </data>
+  <data name="ProductName_PhoneSamsung" xml:space="preserve">
+    <value>Samsung smartphone</value>
+  </data>
+  <data name="ProductName_Laptop" xml:space="preserve">
+    <value>Laptop</value>
+  </data>
+  <data name="ProductName_Phone" xml:space="preserve">
+    <value>Smartphone</value>
+  </data>
+  <data name="Currency_RublesLong" xml:space="preserve">
+    <value>rubles</value>
+  </data>
+  <data name="Currency_RublesShort" xml:space="preserve">
+    <value>rub</value>
+  </data>
+</root>
