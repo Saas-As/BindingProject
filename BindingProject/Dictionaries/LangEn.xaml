@@ -66,6 +66,7 @@
     <system:String x:Key="TwoWayBindingView_ExplanationBullet2">• Changes in model (buttons) → update UI</system:String>
     <system:String x:Key="TwoWayBindingView_ExplanationBullet3">• All elements are synchronized with each other</system:String>
     <system:String x:Key="Button_TwoWay_ResetNameToNewProduct">Reset name to "New Product"</system:String>
+    
 
     <!-- OneTimeBindingView -->
     <system:String x:Key="OneTimeBindingView_Title">⏱️ OneTime Binding</system:String>

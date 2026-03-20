@@ -1,21 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BindingProject.Views
 {
-    /// <summary>
-    /// Логика взаимодействия для TwoWayBindingView.xaml
-    /// </summary>
     public partial class TwoWayBindingView : UserControl
     {
         public TwoWayBindingView()
@@ -25,10 +13,17 @@ namespace BindingProject.Views
 
         private void SetHighPrice_Click(object sender, RoutedEventArgs e)
         {
-            // Находим ViewModel через DataContext
             if (DataContext is ViewModels.MainViewModel viewModel)
             {
                 viewModel.CurrentProduct.Price = 99999;
+                viewModel.LastUpdateTime = DateTime.Now;
+
+                // Получаем переведенное сообщение из ресурсов
+                string messageTemplate = (string)Application.Current.Resources["Message_PriceChanged"];
+                string message = string.Format(messageTemplate, viewModel.CurrentProduct.Price);
+                string title = (string)Application.Current.Resources["MainWindow_Title"];
+
+                MessageBox.Show(message, title);
             }
         }
 
@@ -36,8 +31,10 @@ namespace BindingProject.Views
         {
             if (DataContext is ViewModels.MainViewModel vm)
             {
-                string newProductName = LanguageManager.GetString("Product_NewProduct");
+                // Получаем переведенное название из ресурсов
+                string newProductName = (string)Application.Current.Resources["Product_NewProduct"];
                 vm.CurrentProduct.Name = newProductName;
+                vm.LastUpdateTime = DateTime.Now;
             }
         }
     }

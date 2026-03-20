@@ -66,6 +66,7 @@
     <system:String x:Key="TwoWayBindingView_ExplanationBullet2">• Изменения в модели (кнопки) → обновляют интерфейс</system:String>
     <system:String x:Key="TwoWayBindingView_ExplanationBullet3">• Все элементы синхронизированы между собой</system:String>
     <system:String x:Key="Button_TwoWay_ResetNameToNewProduct">Сбросить название на "Новый товар"</system:String>
+    
 
     <!-- OneTimeBindingView -->
     <system:String x:Key="OneTimeBindingView_Title">⏱️ Одноразовая привязка (OneTime)</system:String>
