@@ -34,9 +34,10 @@ namespace BindingProject.Views
 
         private void ResetName_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is ViewModels.MainViewModel viewModel)
+            if (DataContext is ViewModels.MainViewModel vm)
             {
-                viewModel.CurrentProduct.Name = "Новый товар";
+                string newProductName = LanguageManager.GetString("Product_NewProduct");
+                vm.CurrentProduct.Name = newProductName;
             }
         }
     }

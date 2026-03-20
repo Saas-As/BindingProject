@@ -5,8 +5,15 @@
              xmlns:converters="clr-namespace:BindingProject.Converters"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- По умолчанию русский язык -->
+                <ResourceDictionary Source="Dictionaries/LangRu.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
 
-        <converters:GreaterThanZeroConverter x:Key="GreaterThanZeroConverter"/>
+            <!-- Конвертеры теперь внутри ResourceDictionary -->
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+            <converters:GreaterThanZeroConverter x:Key="GreaterThanZeroConverter"/>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

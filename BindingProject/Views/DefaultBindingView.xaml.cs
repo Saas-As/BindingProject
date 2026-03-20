@@ -27,9 +27,11 @@ namespace BindingProject.Views
         {
             if (DataContext is ViewModels.MainViewModel vm)
             {
-                vm.CurrentProduct.Name = "Товар";
+                string defaultName = LanguageManager.GetString("Product_Default");
+                vm.CurrentProduct.Name = defaultName;
                 vm.CurrentProduct.Price = 1000;
                 vm.CurrentProduct.Quantity = 1;
+                vm.LastUpdateTime = DateTime.Now;
             }
         }
     }

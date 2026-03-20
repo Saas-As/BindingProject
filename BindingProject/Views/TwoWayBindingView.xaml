@@ -6,101 +6,98 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
-    <StackPanel Margin="20" MaxWidth="500">
-        <TextBlock Text="🔄 Двухсторонняя привязка (TwoWay)"
-                   FontSize="20" FontWeight="Bold" Margin="0,0,0,20"
-                   Foreground="#2C3E50"/>
+        <StackPanel Margin="20" MaxWidth="500">
 
+            <!-- Заголовок -->
+            <TextBlock Text="{DynamicResource TwoWayBindingView_Title}"
+                       FontSize="20" FontWeight="Bold" Margin="0,0,0,20"
+                       Foreground="#2C3E50"/>
+
+            <!-- ОПИСАНИЕ -->
             <Border Background="#F0F8FF" Padding="10" Margin="0,0,0,15" CornerRadius="5">
-                <TextBlock TextWrapping="Wrap">
-        <Run Text="Двусторонняя привязка: изменения в любом поле обновляют все связанные элементы"/>
-                </TextBlock>
+                <TextBlock Text="{DynamicResource TwoWayBindingView_Description}"
+                           TextWrapping="Wrap"/>
             </Border>
 
-            <!-- ========== ПРИМЕР 1: Два текстбокса к одному свойству ========== -->
-        <Border Background="#F0F0F0" Padding="10" Margin="0,5,0,10" CornerRadius="5">
-                <TextBlock Text="📌 ПРИМЕР 1: Два текстбокса связаны с одним свойством"
-                       FontWeight="Bold" Foreground="#2C3E50"/>
-        </Border>
+            <!-- ПРИМЕР 1: Два текстбокса к одному свойству -->
+            <Border Background="#F0F0F0" Padding="10" Margin="0,5,0,10" CornerRadius="5">
+                <TextBlock Text="{DynamicResource TwoWayBindingView_Example1_Title}"
+                           FontWeight="Bold" Foreground="#2C3E50"/>
+            </Border>
 
-        <TextBlock Text="Название товара (редактируй любое поле):" Margin="0,5"/>
-        <TextBox x:Name="FirstTextBox" 
-                 Text="{Binding CurrentProduct.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                 Margin="0,0,0,5" Padding="8"/>
+            <TextBlock Text="{DynamicResource TwoWayBindingView_Label_ProductNameEditAnyField}" Margin="0,5"/>
+            <TextBox x:Name="FirstTextBox" 
+                     Text="{Binding CurrentProduct.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="0,0,0,5" Padding="8"/>
 
-        <TextBox Text="{Binding CurrentProduct.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                 Margin="0,0,0,15" Padding="8"/>
+            <TextBox Text="{Binding CurrentProduct.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="0,0,0,15" Padding="8"/>
 
-        <TextBlock Text="⬆️ Изменяй текст в любом поле — второй обновляется сразу" 
-                   FontStyle="Italic" Foreground="Gray" Margin="0,0,0,20"/>
+            <TextBlock Text="{DynamicResource TwoWayBindingView_UpHintText}" 
+                       FontStyle="Italic" Foreground="Gray" Margin="0,0,0,20"/>
 
-        <!-- ========== ПРИМЕР 2: Слайдер + текстбокс ========== -->
-        <Border Background="#F0F0F0" Padding="10" Margin="0,5,0,10" CornerRadius="5">
-                <TextBlock Text="📌 ПРИМЕР 2: Слайдер и текстбокс для цены"
-                       FontWeight="Bold" Foreground="#2C3E50"/>
-        </Border>
+            <!-- ПРИМЕР 2: Слайдер + текстбокс -->
+            <Border Background="#F0F0F0" Padding="10" Margin="0,5,0,10" CornerRadius="5">
+                <TextBlock Text="{DynamicResource TwoWayBindingView_Example2_Title}"
+                           FontWeight="Bold" Foreground="#2C3E50"/>
+            </Border>
 
-        <TextBlock Text="Цена (двигай слайдер или вводи число):" Margin="0,5"/>
-        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-            <TextBox Text="{Binding CurrentProduct.Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                     Width="100" Padding="8" Margin="0,0,10,0"/>
-            <Slider Value="{Binding CurrentProduct.Price, Mode=TwoWay}" 
-                    Minimum="0" Maximum="100000" Width="300"
-                    IsSnapToTickEnabled="True"
-                    TickFrequency="1"/>
-        </StackPanel>
+            <TextBlock Text="{DynamicResource TwoWayBindingView_PriceInstruction}" Margin="0,5"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <TextBox Text="{Binding CurrentProduct.Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                         Width="100" Padding="8" Margin="0,0,10,0"/>
+                <Slider Value="{Binding CurrentProduct.Price, Mode=TwoWay}" 
+                        Minimum="0" Maximum="100000" Width="300"
+                        IsSnapToTickEnabled="True"
+                        TickFrequency="1"/>
+            </StackPanel>
 
-        <TextBlock Margin="0,5,0,20">
-            <TextBlock.Text>
-                <MultiBinding StringFormat="{}{0} рублей">
-                    <Binding Path="CurrentProduct.Price"/>
-                </MultiBinding>
-            </TextBlock.Text>
-        </TextBlock>
+            <TextBlock Text="{Binding CurrentProduct.Price, StringFormat={}{0:N0} руб}" 
+                       Margin="0,5,0,20"/>
 
-        <!-- ========== ПРИМЕР 3: CheckBox и видимость ========== -->
-        <Border Background="#F0F0F0" Padding="10" Margin="0,5,0,10" CornerRadius="5">
-                <TextBlock Text="📌 ПРИМЕР 3: CheckBox управляет видимостью"
-                       FontWeight="Bold" Foreground="#2C3E50"/>
-        </Border>
+            <!-- ПРИМЕР 3: CheckBox и видимость -->
+            <Border Background="#F0F0F0" Padding="10" Margin="0,5,0,10" CornerRadius="5">
+                <TextBlock Text="{DynamicResource TwoWayBindingView_Example3_Title}"
+                           FontWeight="Bold" Foreground="#2C3E50"/>
+            </Border>
 
-        <CheckBox Content="Показать дополнительную информацию" 
-                  IsChecked="{Binding ShowExtraInfo, Mode=TwoWay}"
-                  Margin="0,5,0,10"/>
+            <CheckBox Content="{DynamicResource TwoWayBindingView_ShowExtraInfoLabel}" 
+                      IsChecked="{Binding ShowExtraInfo, Mode=TwoWay}"
+                      Margin="0,5,0,10"/>
 
-        <Border Background="#FFF9E6" Padding="10" Margin="0,0,0,15" 
-                Visibility="{Binding ShowExtraInfo, Converter={StaticResource BooleanToVisibilityConverter}}">
-            <TextBlock Text="Это дополнительная информация, которая появляется/скрывается по чекбоксу" 
-                       TextWrapping="Wrap"/>
-        </Border>
+            <Border Background="#FFF9E6" Padding="10" Margin="0,0,0,15" 
+                    Visibility="{Binding ShowExtraInfo, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <TextBlock Text="{DynamicResource TwoWayBindingView_ExtraInfoText}" 
+                           TextWrapping="Wrap"/>
+            </Border>
 
-        <!-- ========== ПРИМЕР 4: Кнопка обновления данных ========== -->
-        <Border Background="#F0F0F0" Padding="10" Margin="0,5,0,10" CornerRadius="5">
-                <TextBlock Text="📌 ПРИМЕР 4: Изменение данных в коде"
-                       FontWeight="Bold" Foreground="#2C3E50"/>
-        </Border>
+            <!-- ПРИМЕР 4: Кнопка обновления данных -->
+            <Border Background="#F0F0F0" Padding="10" Margin="0,5,0,10" CornerRadius="5">
+                <TextBlock Text="{DynamicResource TwoWayBindingView_Example4_Title}"
+                           FontWeight="Bold" Foreground="#2C3E50"/>
+            </Border>
 
-        <Button Content="Установить цену 99999" 
-                Click="SetHighPrice_Click"
-                Padding="15,8" Margin="0,0,10,0" Background="#3498DB" Foreground="White"/>
+            <Button Content="{DynamicResource Button_SetHighPrice}" 
+                    Click="SetHighPrice_Click"
+                    Padding="15,8" Margin="0,0,10,0" Background="#3498DB" Foreground="White"/>
 
-        <Button Content="Сбросить название на 'Новый товар'" 
-                Click="ResetName_Click"
-                Padding="15,8" Margin="0,10,10,0" Background="#3498DB" Foreground="White"/>
+            <Button Content="{DynamicResource Button_TwoWay_ResetNameToNewProduct}" 
+                    Click="ResetName_Click"
+                    Padding="15,8" Margin="0,10,10,0" Background="#3498DB" Foreground="White"/>
 
-        <!-- ========== ПОЯСНЕНИЕ ========== -->
-        <Border Background="#E8F5E9" Padding="15" Margin="0,20,0,0" CornerRadius="5">
-            <StackPanel>
-                <TextBlock Text="📌 Что демонстрирует TwoWay привязка:" 
-                           FontWeight="Bold" FontSize="14" Margin="0,0,0,5"/>
-                <TextBlock Text="• Изменения в интерфейсе → обновляют модель" 
-                           Margin="10,2,0,2"/>
-                <TextBlock Text="• Изменения в модели (кнопки) → обновляют интерфейс" 
-                           Margin="10,2,0,2"/>
-                <TextBlock Text="• Все элементы синхронизированы между собой" 
-                           Margin="10,2,0,2"/>
+            <!-- ПОЯСНЕНИЕ -->
+            <Border Background="#E8F5E9" Padding="15" Margin="0,20,0,0" CornerRadius="5">
+                <StackPanel>
+                    <TextBlock Text="{DynamicResource TwoWayBindingView_ExplanationTitle}" 
+                               FontWeight="Bold" FontSize="14" Margin="0,0,0,5"/>
+                    <TextBlock Text="{DynamicResource TwoWayBindingView_ExplanationBullet1}" 
+                               Margin="10,2,0,2"/>
+                    <TextBlock Text="{DynamicResource TwoWayBindingView_ExplanationBullet2}" 
+                               Margin="10,2,0,2"/>
+                    <TextBlock Text="{DynamicResource TwoWayBindingView_ExplanationBullet3}" 
+                               Margin="10,2,0,2"/>
                 </StackPanel>
-        </Border>
-    </StackPanel>
+            </Border>
+        </StackPanel>
     </ScrollViewer>
 </UserControl>

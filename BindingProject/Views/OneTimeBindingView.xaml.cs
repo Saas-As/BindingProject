@@ -27,9 +27,11 @@ namespace BindingProject.Views
         {
             if (DataContext is ViewModels.MainViewModel vm)
             {
-                vm.CurrentProduct.Name = "Ноутбук";
+                string productName = LanguageManager.GetString("Product_Laptop");
+                vm.CurrentProduct.Name = productName;
                 vm.CurrentProduct.Price = 75000;
                 vm.CurrentProduct.Quantity = 2;
+                vm.LastUpdateTime = DateTime.Now;
             }
         }
 
@@ -37,9 +39,11 @@ namespace BindingProject.Views
         {
             if (DataContext is ViewModels.MainViewModel vm)
             {
-                vm.CurrentProduct.Name = "Смартфон";
+                string productName = LanguageManager.GetString("Product_Phone");
+                vm.CurrentProduct.Name = productName;
                 vm.CurrentProduct.Price = 45000;
                 vm.CurrentProduct.Quantity = 5;
+                vm.LastUpdateTime = DateTime.Now;
             }
         }
 
@@ -55,9 +59,11 @@ namespace BindingProject.Views
         {
             if (DataContext is ViewModels.MainViewModel vm)
             {
-                vm.CurrentProduct.Name = "Товар";
+                string defaultName = LanguageManager.GetString("Product_Default");
+                vm.CurrentProduct.Name = defaultName;
                 vm.CurrentProduct.Price = 1000;
                 vm.CurrentProduct.Quantity = 1;
+                vm.LastUpdateTime = DateTime.Now;
             }
         }
     }

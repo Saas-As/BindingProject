@@ -21,6 +21,17 @@ namespace BindingProject
         {
             InitializeComponent();
             DataContext = new MainViewModel();
+
+            // Устанавливаем язык по умолчанию
+            LanguageComboBox.SelectedIndex = 0;
+        }
+
+        private void LanguageComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (LanguageComboBox.SelectedItem is ComboBoxItem item && item.Tag is string language)
+            {
+                LanguageManager.ChangeLanguage(language);
+            }
         }
     }
 }
